@@ -61,18 +61,24 @@ end)
 
 
 
+RegisterNetEvent("mb-sugar:WeddingCakeFull", function()
+    --remove box
+    TriggerServerEvent('QBCore:Server:RemoveItem', "weddingcakefull", 1)
+    --add items from box
+    TriggerServerEvent('QBCore:Server:AddItem', "weddingcake", 12)
+
+
+end)
 
 
 
-
-RegisterNetEvent("mb-sugar:SugarMeal", function()
+RegisterNetEvent("mb-sugar:DonutBox", function()
 		local randomToy = math.random(1,10)
 		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "sugarmeal", 1)
+		TriggerServerEvent('QBCore:Server:RemoveItem', "donutbox", 1)
 		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "sugar-heartstopper", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "sugar-softdrink", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "sugar-fries", 1)
+		TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 6)
+		TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 6)
 
 		if randomToy < 4 then
 			
@@ -97,13 +103,13 @@ RegisterNetEvent("mb-sugar:SugarMeal", function()
 end)
 
 
-RegisterNetEvent("mb-sugar:CreateSugarMeal", function()
+RegisterNetEvent("mb-sugar:CreateDonutBox", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientSugarMeal', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientDonutBox', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-				QBCore.Functions.Progressbar("pickup_sla", "Making A Sugar Meal..", 4000, false, true, {
+				QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
 					disableMovement = true,
 					disableCarMovement = false,
 					disableMouse = false,
@@ -115,15 +121,14 @@ RegisterNetEvent("mb-sugar:CreateSugarMeal", function()
 				}, {}, {}, function() -- Done
 					Working = false
 					TriggerEvent('inventory:client:busy:status', false)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "sugar-fries", 1)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "sugar-heartstopper", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "sugar-softdrink", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
 
 
-					TriggerServerEvent('QBCore:Server:AddItem', "sugarmeal", 1)
-                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["sugarmeal"], "add")
+					TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
 
-                    QBCore.Functions.Notify("You made a A Sugar Meal", "success")
+                    QBCore.Functions.Notify("You made a Donut Box", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
 					QBCore.Functions.Notify("Cancelled..", "error")
@@ -173,7 +178,7 @@ RegisterNetEvent("mb-sugar:EmsCupcake", function()
 				}, {}, {}, function() -- Done
 					Working = false
 					TriggerEvent('inventory:client:busy:status', false)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
 					TriggerServerEvent('QBCore:Server:AddItem', "emscupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["emscupcake"], "add")
                     QBCore.Functions.Notify("You made a EMS Cupcake", "success")
@@ -209,7 +214,7 @@ RegisterNetEvent("mb-sugar:CarCupcake", function()
 				}, {}, {}, function() -- Done
 					Working = false
 					TriggerEvent('inventory:client:busy:status', false)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
 					TriggerServerEvent('QBCore:Server:AddItem', "carcupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["carcupcake"], "add")
                     QBCore.Functions.Notify("You made a Car Cupcake", "success")
@@ -227,6 +232,185 @@ RegisterNetEvent("mb-sugar:CarCupcake", function()
 	end
 end)
 
+RegisterNetEvent("mb-sugar:ChocolateCupcake", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientChocolateCupcake', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "chocolatecupcake", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocolatecupcake"], "add")
+                    QBCore.Functions.Notify("You made a Chocolate Cupcake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:RvCupcake", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientRvCupcake', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Red Velvet Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "rvcupcake", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["rvcupcake"], "add")
+                    QBCore.Functions.Notify("You made a Red Velvet Cupcake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:CreateWeddingCakeFull", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientWeddingCakeFull', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making a Wedding Cake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "weddingcakefull", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weddingcakefull"], "add")
+                    QBCore.Functions.Notify("You made a Wedding Cake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:BirthdayCupcake", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientBirthdayCupcake', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Birthday Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "birthdaycupcake", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["birthdaycupcake"], "add")
+                    QBCore.Functions.Notify("You made a Birthday Cupcake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:Cupcake", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCupcake', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making a Plain Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "cupcake", 10)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cupcake"], "add")
+                    QBCore.Functions.Notify("You made a Plain Cupcake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
 
 RegisterNetEvent("mb-sugar:PoliceCookie", function()
     if onDuty then
@@ -264,6 +448,186 @@ RegisterNetEvent("mb-sugar:PoliceCookie", function()
 	end
 end)
 
+RegisterNetEvent("mb-sugar:ChocDonut", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientChocDonut', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocdonut"], "add")
+                    QBCore.Functions.Notify("You made a Chocolate Donut", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:PinkDonut", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientPinkDonut', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Pink Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["pinkdonut"], "add")
+                    QBCore.Functions.Notify("You made a Chocolate Donut", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:PlainDonut", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientPlainDonut', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Plain Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "donutmix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "plaindonut", 10)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["plaindonut"], "add")
+                    QBCore.Functions.Notify("You made Plain Donuts", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:CheeseCake", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCheeseCake', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Strawberry Cheese Cake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "strawberry", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "scheesecake", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["scheesecake"], "add")
+                    QBCore.Functions.Notify("You made a Strawberry Cheese Cake", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
+
+RegisterNetEvent("mb-sugar:Cookie", function()
+    if onDuty then
+    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCookie', function(HasItems)  
+    		if HasItems then
+				Working = true
+				TriggerEvent('inventory:client:busy:status', true)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Cookie..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "cookie", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cookie"], "add")
+                    QBCore.Functions.Notify("You made a Chocolate Donut", "success")
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					QBCore.Functions.Notify("Cancelled..", "error")
+					Working = false
+				end)
+			else
+   				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
+			end
+		end)
+	else 
+		QBCore.Functions.Notify("You must be Clocked into work", "error")
+	end
+end)
 
 
 
@@ -281,34 +645,22 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:SoftDrink", function()
+
+RegisterNetEvent("mb-sugar:Smoothie", function()
     if onDuty then
     QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)
         if HasItem then
-           MakeSoftDrink()
+           MakeSmoothie()
         else
-            QBCore.Functions.Notify("You don't have any Drink syrup..", "error")
+            QBCore.Functions.Notify("You don't have any Smoothie Mix..", "error")
         end
-      end, 'sugar-sodasyrup')
+      end, 'smoothiemix')
     else
         QBCore.Functions.Notify("You must be Clocked into work", "error")
     end
 end)
 
 
-RegisterNetEvent("mb-sugar:mShake", function()
-    if onDuty then
-    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)
-        if HasItem then
-           MakeMShake()
-        else
-            QBCore.Functions.Notify("You don't have any Drink Formula..", "error")
-        end
-      end, 'sugar-mshakeformula')
-    else
-        QBCore.Functions.Notify("You must be Clocked into work", "error")
-    end
-end)
 
 
 
@@ -397,25 +749,9 @@ end)
 
 
 -- Functions --
-function MakeSoftDrink()
+function MakeSmoothie()
 
-    TriggerServerEvent('QBCore:Server:RemoveItem', "sugar-sodasyrup", 1)
-    QBCore.Functions.Progressbar("pickup", "Filling a cup..", 4000, false, true, {
-        disableMovement = true,
-        disableCarMovement = false,
-        disableMouse = false,
-        disableCombat = false,
-    })
-    Citizen.Wait(4000)
-    TriggerServerEvent('QBCore:Server:AddItem', "sugar-softdrink", 1)
-    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["sugar-softdrink"], "add")
-    QBCore.Functions.Notify("You made a Soda", "success")
-    end  
-
-
-function MakeMShake()
-
-    TriggerServerEvent('QBCore:Server:RemoveItem', "sugar-mshakeformula", 1)
+    TriggerServerEvent('QBCore:Server:RemoveItem', "smoothiemix", 1)
     QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
         disableMovement = true,
         disableCarMovement = false,
@@ -423,9 +759,9 @@ function MakeMShake()
         disableCombat = false,
     })
     Citizen.Wait(4000)
-    TriggerServerEvent('QBCore:Server:AddItem', "sugar-mshake", 1)
-    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["sugar-mshake"], "add")
-    QBCore.Functions.Notify("You made a Milkshake", "success")
+    TriggerServerEvent('QBCore:Server:AddItem', "smoothie", 1)
+    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["smoothie"], "add")
+    QBCore.Functions.Notify("You made a Smoothie", "success")
     end  
    
 
@@ -475,25 +811,6 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("sugarcooker", vector3(60.87, -122.52, 55.45), 0.6, 0.8, {
-        name="sugar cooker",
-        heading=340,
-        --debugPoly=true,
-        minZ=53.25,
-        maxZ=55.65
-        }, {
-            options = {
-                {
-                event = "mb-sugar:PattyFry",
-                icon = "fas fa-birthday-cake",
-                label = "Cook Station",
-                job = "sugar",
-            },
-        },
-        distance = 1.5
-    })
-
-    
     exports['qb-target']:AddBoxZone("sugardrinks", vector3(61.5, -120.89, 55.45), 0.8, 1.8, {
         name="sugar drinks",
         heading=295,
@@ -511,25 +828,6 @@ Citizen.CreateThread(function()
         },
         distance = 1.5
     })
-
-    exports['qb-target']:AddBoxZone("sugardrinks2", vector3(60.02, -125.03, 55.45), 0.8, 0.6, {
-        name="sugar fridge drink",
-        heading=340,
-        --debugPoly=true,
-        minZ=52.45,
-        maxZ=56.45
-        }, {
-            options = {
-                {
-                event = "Sugar:Client:DrinksMenu",
-                icon = "fas fa-filter",
-                label = "Make Some Drinks",
-                job = "sugar",
-            },
-        },
-                distance = 1.5
-    })
-
 
     exports['qb-target']:AddBoxZone("ordermenu", vector3(55.49, -121.12, 55.45), 2.8, 0.4, {
         name="sugar order",
@@ -567,8 +865,8 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("craftsugar", vector3(60.87, -122.52, 55.45), 0.6, 0.8, {
-        name="sugar cooker",
+    exports['qb-target']:AddBoxZone("goodies", vector3(60.87, -122.52, 55.45), 0.6, 0.8, {
+        name="goodies",
         heading=340,
         debugPoly=false,
         minZ=53.25,
@@ -577,12 +875,48 @@ Citizen.CreateThread(function()
             options = {
                 {
                 event = "Sugar:Client:SugarMenu",
-                icon = "fas fa-cheesesugar",
+                icon = "fas fa-cupcake",
                 label = "Goodies to Make",
                 job = "sugar",
             },
         },
         distance = 1.5
+    })
+
+    exports['qb-target']:AddBoxZone("plain", vector3(57.92, -119.53, 55.45), 0.4, 0.4, {
+        name="sugarplain",
+        heading=340,
+        --debugPoly=true,
+        minZ=55.25,
+        maxZ=55.85
+        }, {
+            options = {
+                {
+                event = "Sugar:Client:PlainMenu",
+                icon = "fas fa-donut",
+                label = "Make Some Bases",
+                job = "sugar",
+            },
+        },
+                distance = 1.5
+    })
+
+    exports['qb-target']:AddBoxZone("donutbox", vector3(60.56, -123.2, 55.45), 0.6, 0.4, {
+        name="donutbox",
+        heading=350,
+        --debugPoly=true,
+        minZ=55.25,
+        maxZ=55.65
+        }, {
+            options = {
+                {
+                event = "Sugar:Client:DonutMenu",
+                icon = "fas fa-donut",
+                label = "Make a Donut Box",
+                job = "sugar",
+            },
+        },
+                distance = 1.5
     })
 
 
@@ -611,25 +945,64 @@ end)
 
 
 -- sugar Menus
-RegisterNetEvent('Sugar:Client:SugarMenu', function()
+RegisterNetEvent('Sugar:Client:PlainMenu', function()
     exports['qb-menu']:openMenu({
         {
-            header = "| Available Goodies |",
+            header = "| Make Base |",
             txt = "",
         },
         {
-            header = "• Car Cupcake",
+            header = "• Plain Cupcake",
             txt = "Cake Mix",
             params = {
-                event = "mb-sugar:CarCupcake"
+                event = "mb-sugar:Cupcake"
             }
         },
         {
-            header = "• EMS Cupcake",
-            txt = "Cake Mix",
+            header = "• Plain Donut",
+            txt = "Donut Mix",
             params = {
-                event = "mb-sugar:EmsCupcake"
+                event = "mb-sugar:PlainDonut"
             }
+        },
+        {
+            header = "⬅ Close Menu",
+            txt = "",
+            params = {
+                event = "qb-menu:client:closeMenu"
+            }
+        },
+    })
+end)
+
+RegisterNetEvent('Sugar:Client:DonutMenu', function()
+    exports['qb-menu']:openMenu({
+        {
+            header = "| Make Donut Box |",
+            txt = "",
+        },
+        {
+            header = "• Donut Box",
+            txt = "Pink Donut x6, Chocolate Donut x6",
+            params = {
+                event = "mb-sugar:CreateDonutBox"
+            }
+        },
+        {
+            header = "⬅ Close Menu",
+            txt = "",
+            params = {
+                event = "qb-menu:client:closeMenu"
+            }
+        },
+    })
+end)
+
+RegisterNetEvent('Sugar:Client:SugarMenu', function()
+    exports['qb-menu']:openMenu({
+        {
+            header = "| Let's Make Some Goodies! |",
+            txt = "",
         },
         {
             header = "• Police Cookie",
@@ -639,17 +1012,73 @@ RegisterNetEvent('Sugar:Client:SugarMenu', function()
             }
         },
         {
-            header = "• Cupcake",
-            txt = "Cake Mix",
+            header = "• Ems Cupcake",
+            txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:CupCake"
+                event = "mb-sugar:EmsCupcake"
             }
         },
         {
-            header = "• Sugar Meal",
-            txt = "",
+            header = "• Car Cupcake",
+            txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:CreateSugarMeal"
+                event = "mb-sugar:CarCupcake"
+            }
+        },
+        {
+            header = "• Chocolate Cupcake",
+            txt = "Plain Cupcake",
+            params = {
+                event = "mb-sugar:ChocolateCupcake"
+            }
+        },
+        {
+            header = "• Red Velvet Cupcake",
+            txt = "Plain Cupcake",
+            params = {
+                event = "mb-sugar:RvCupcake"
+            }
+        },
+        {
+            header = "• Birthday Cupcake",
+            txt = "Plain Cupcake",
+            params = {
+                event = "mb-sugar:BirthdayCupcake"
+            }
+        },
+        {
+            header = "• Chocolate Donut",
+            txt = "Plain Donut",
+            params = {
+                event = "mb-sugar:ChocDonut"
+            }
+        },
+        {
+            header = "• Pink Donut",
+            txt = "Plain Donut",
+            params = {
+                event = "mb-sugar:PinkDonut"
+            }
+        },
+        {
+            header = "• Cookie",
+            txt = "Cookie Mix",
+            params = {
+                event = "mb-sugar:Cookie"
+            }
+        },
+        {
+            header = "• Wedding Cake",
+            txt = "Cake Mix x10",
+            params = {
+                event = "mb-sugar:CreateWeddingCakeFull"
+            }
+        },
+        {
+            header = "• Cheese Cake",
+            txt = "Cake Mix, Strawberry",
+            params = {
+                event = "mb-sugar:CheeseCake"
             }
         },
         {
@@ -699,17 +1128,10 @@ RegisterNetEvent('Sugar:Client:DrinksMenu', function()
             txt = "",
         },
         {
-            header = "• Soft Drink",
-            txt = "Soda Syrup",
+            header = "• Smoothie",
+            txt = "Smoothie Mix",
             params = {
-                event = "mb-sugar:SoftDrink"
-            }
-        },
-        {
-            header = "• Milkshake",
-            txt = "Milkshake Formula",
-            params = {
-                event = "mb-sugar:mShake"
+                event = "mb-sugar:Smoothie"
             }
         },
         {
