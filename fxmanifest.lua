@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'MB Development'
-description 'qb-sugarbakery for QBCore '
+description 'qb-treybakery for QBCore '
 version '1.0.0'
 
 shared_scripts {

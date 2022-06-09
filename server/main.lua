@@ -1,11 +1,11 @@
 QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterServerEvent("mb-sugar:bill:player")
-AddEventHandler("mb-sugar:bill:player", function(playerId, amount)
+RegisterServerEvent("mb-trey:bill:player")
+AddEventHandler("mb-trey:bill:player", function(playerId, amount)
         local biller = QBCore.Functions.GetPlayer(source)
         local billed = QBCore.Functions.GetPlayer(tonumber(playerId))
         local amount = tonumber(amount)
-        if biller.PlayerData.job.name == 'sugar' then
+        if biller.PlayerData.job.name == 'trey' then
             if billed ~= nil then
                 if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
                     if amount and amount > 0 then
@@ -35,7 +35,7 @@ end)
 
 
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientEmsCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientEmsCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -46,7 +46,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientEmsCupcake', func
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCarCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientCarCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -57,7 +57,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCarCupcake', func
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientChocolateCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientChocolateCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -68,7 +68,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientChocolateCupcake'
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientRvCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientRvCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -79,7 +79,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientRvCupcake', funct
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientWeddingCakeFull', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientWeddingCakeFull', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -90,7 +90,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientWeddingCakeFull',
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientBirthdayCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientBirthdayCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -101,7 +101,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientBirthdayCupcake',
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCupcake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientCupcake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -112,7 +112,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCupcake', functio
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPlainDonut', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientPlainDonut', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local donutmix = Ply.Functions.GetItemByName("donutmix")
@@ -124,7 +124,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPlainDonut', func
 end)
 
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPoliceCookie', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientPoliceCookie', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cookiemix = Ply.Functions.GetItemByName("cookiemix")
@@ -135,7 +135,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPoliceCookie', fu
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientChocDonut', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientChocDonut', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local donutmix = Ply.Functions.GetItemByName("donutmix")
@@ -146,7 +146,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientChocDonut', funct
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPinkDonut', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientPinkDonut', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local donutmix = Ply.Functions.GetItemByName("donutmix")
@@ -157,7 +157,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientPinkDonut', funct
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientDonutBox', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientDonutBox', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local chocdonut = Ply.Functions.GetItemByName("chocdonut")
@@ -169,7 +169,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientDonutBox', functi
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCheeseCake', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientCheeseCake', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cakemix = Ply.Functions.GetItemByName("cakemix")
@@ -181,7 +181,7 @@ QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCheeseCake', func
     end
 end)
 
-QBCore.Functions.CreateCallback('mb-sugar:server:get:ingredientCookie', function(source, cb)
+QBCore.Functions.CreateCallback('mb-trey:server:get:ingredientCookie', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local cookiemix = Ply.Functions.GetItemByName("cookiemix")
@@ -196,12 +196,12 @@ end)
 
 QBCore.Functions.CreateUseableItem("donutbox", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("mb-sugar:DonutBox", source, item.name)
+    TriggerClientEvent("mb-trey:DonutBox", source, item.name)
   end)
 
   QBCore.Functions.CreateUseableItem("weddingcakefull", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("mb-sugar:WeddingCakeFull", source, item.name)
+    TriggerClientEvent("mb-trey:WeddingCakeFull", source, item.name)
   end)
 
 

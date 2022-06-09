@@ -1,13 +1,13 @@
-# mb-sugar
-This is a script made for the Sugar Bakery MLO. It offers a easy config with many presets already in place. 
+# mb-trey
+This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. 
 
 
 
 
 -- Add this below to qb-core > shared > jobs.lua
 
-	["sugar"] = {
-		label = "sugar",
+	["trey"] = {
+		label = "trey",
 		defaultDuty = false,
 		grades = {
 			['0'] = {
@@ -43,7 +43,7 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
 -- Add this below to qb-core > shared > items.lua
 
 
-    	-- Sugar Bakery
+    	-- Trey Bakery
 
 	--Ingredients 
 	["cakemix"]		 	         	 = {["name"] = "cakemix", 			  	  	    ["label"] = "Cake Mix",    	            ["weight"] = 200, 		["type"] = "item", 	    ["image"] = "cakemix.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Cake Mix."},
@@ -71,13 +71,13 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
 	--Drinks
 	["smoothie"]		 	             = {["name"] = "smoothie", 			  	  	    ["label"] = "Strawberry Smoothie",    ["weight"] = 600, 		["type"] = "item", 	    ["image"] = "smoothie.png", 			    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Tasty Smoothie."},
 	--Toys
-	["sugar-toy1"] 		 		 = {["name"] = "sugar-toy1", 					["label"] = "Donut Plushy", 			["created"] = nil,		["weight"] = 50, 		["type"] = "item", 		["image"] = "sugartoy1.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Donut Plushy from Sugar Bakery"},
-	["sugar-toy2"] 		 		 = {["name"] = "sugar-toy2", 					["label"] = "Sugar Glider", 				["created"] = nil,		["weight"] = 50, 		["type"] = "item", 		["image"] = "sugartoy2.png", 			    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Sugar Glider Plushy from Sugar Bakery"},
+	["trey-toy1"] 		 		 = {["name"] = "trey-toy1", 					["label"] = "Donut Plushy", 			["created"] = nil,		["weight"] = 50, 		["type"] = "item", 		["image"] = "treytoy1.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Donut Plushy from Trey Bakery"},
+	["trey-toy2"] 		 		 = {["name"] = "trey-toy2", 					["label"] = "Sugar Glider", 				["created"] = nil,		["weight"] = 50, 		["type"] = "item", 		["image"] = "treytoy2.png", 			    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Sugar Glider Plushy from Trey Bakery"},
 	
 	
 -- Add this below to qb-smallresources > client > consumables.lua
 	
-	--Sugar Food
+	--Trey Food
 
 	RegisterNetEvent("consumables:client:emscupcake")
 	AddEventHandler("consumables:client:emscupcake", function(itemName)
@@ -255,7 +255,7 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
     	end)
 	end)
 
-	--Sugar Drinks
+	--Trey Drinks
 
 	RegisterNetEvent("consumables:client:smoothie")
 	AddEventHandler("consumables:client:smoothie", function(itemName)
@@ -277,7 +277,7 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
 
 -- Add this below to qb-smallresources > server > consumables.lua
 
-	--Sugar Food
+	--Trey Food
 
 	QBCore.Functions.CreateUseableItem("emscupcake", function(source, item)
     	local Player = QBCore.Functions.GetPlayer(source)
@@ -357,7 +357,7 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
     	end
 	end)
 
-	--Sugar Drinks
+	--Trey Drinks
 
 	QBCore.Functions.CreateUseableItem("smoothie", function(source, item)
     	local Player = QBCore.Functions.GetPlayer(source)
@@ -411,3 +411,8 @@ This is a script made for the Sugar Bakery MLO. It offers a easy config with man
 [PolyZone](https://github.com/qbcore-framework/PolyZone)
 
 
+# Bakery MLO
+
+[TreyBakery](https://hanestudios.tebex.io/package/4449250)
+
+[Preview](https://images.app.goo.gl/ZRk5g1H5ECyANY1i6)

@@ -25,7 +25,7 @@ AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
         if PlayerData.job.onduty then
-            if PlayerData.job.name == "sugar" then
+            if PlayerData.job.name == "trey" then
                 TriggerServerEvent("QBCore:ToggleDuty")
             end
         end
@@ -44,15 +44,15 @@ AddEventHandler('QBCore:Client:SetDuty', function(duty)
 end)
 
 Citizen.CreateThread(function()
-    Sugar = AddBlipForCoord(55.33, -125.67, 55.46)
-    SetBlipSprite (Sugar, 621)
-    SetBlipDisplay(Sugar, 4)
-    SetBlipScale  (Sugar, 0.5)
-    SetBlipAsShortRange(Sugar, true)
-    SetBlipColour(Sugar, 8)
+    Trey = AddBlipForCoord(55.33, -125.67, 55.46)
+    SetBlipSprite (Trey, 621)
+    SetBlipDisplay(Trey, 4)
+    SetBlipScale  (Trey, 0.5)
+    SetBlipAsShortRange(Trey, true)
+    SetBlipColour(Trey, 8)
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("Sugar")
-    EndTextCommandSetBlipName(Sugar)
+    AddTextComponentSubstringPlayerName("Trey")
+    EndTextCommandSetBlipName(Trey)
 end) 
 
 
@@ -61,7 +61,7 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:WeddingCakeFull", function()
+RegisterNetEvent("mb-trey:WeddingCakeFull", function()
     --remove box
     TriggerServerEvent('QBCore:Server:RemoveItem', "weddingcakefull", 1)
     --add items from box
@@ -72,7 +72,7 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:DonutBox", function()
+RegisterNetEvent("mb-trey:DonutBox", function()
 		local randomToy = math.random(1,10)
 		--remove box
 		TriggerServerEvent('QBCore:Server:RemoveItem', "donutbox", 1)
@@ -86,8 +86,8 @@ RegisterNetEvent("mb-sugar:DonutBox", function()
 			
 		elseif randomToy == 4 then
 			
-			TriggerServerEvent('QBCore:Server:AddItem', "sugar-toy1", 1)
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["sugar-toy1"], "add")
+			TriggerServerEvent('QBCore:Server:AddItem', "trey-toy1", 1)
+            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy1"], "add")
 		
 		elseif randomToy < 10 and randomToy > 4 then
 			
@@ -95,17 +95,17 @@ RegisterNetEvent("mb-sugar:DonutBox", function()
 			
 		elseif randomToy == 10 then	
  
-			TriggerServerEvent('QBCore:Server:AddItem', "sugar-toy2", 1)	
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["sugar-toy2"], "add")
+			TriggerServerEvent('QBCore:Server:AddItem', "trey-toy2", 1)	
+            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy2"], "add")
 		else	
             QBCore.Functions.Notify("No toy in box :(", "error")
         end
 end)
 
 
-RegisterNetEvent("mb-sugar:CreateDonutBox", function()
+RegisterNetEvent("mb-trey:CreateDonutBox", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientDonutBox', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientDonutBox', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -160,9 +160,9 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:EmsCupcake", function()
+RegisterNetEvent("mb-trey:EmsCupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientEmsCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientEmsCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -196,9 +196,9 @@ RegisterNetEvent("mb-sugar:EmsCupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:CarCupcake", function()
+RegisterNetEvent("mb-trey:CarCupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCarCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientCarCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -232,9 +232,9 @@ RegisterNetEvent("mb-sugar:CarCupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:ChocolateCupcake", function()
+RegisterNetEvent("mb-trey:ChocolateCupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientChocolateCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientChocolateCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -268,9 +268,9 @@ RegisterNetEvent("mb-sugar:ChocolateCupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:RvCupcake", function()
+RegisterNetEvent("mb-trey:RvCupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientRvCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientRvCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -304,9 +304,9 @@ RegisterNetEvent("mb-sugar:RvCupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:CreateWeddingCakeFull", function()
+RegisterNetEvent("mb-trey:CreateWeddingCakeFull", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientWeddingCakeFull', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientWeddingCakeFull', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -340,9 +340,9 @@ RegisterNetEvent("mb-sugar:CreateWeddingCakeFull", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:BirthdayCupcake", function()
+RegisterNetEvent("mb-trey:BirthdayCupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientBirthdayCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientBirthdayCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -376,9 +376,9 @@ RegisterNetEvent("mb-sugar:BirthdayCupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:Cupcake", function()
+RegisterNetEvent("mb-trey:Cupcake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCupcake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientCupcake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -412,9 +412,9 @@ RegisterNetEvent("mb-sugar:Cupcake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:PoliceCookie", function()
+RegisterNetEvent("mb-trey:PoliceCookie", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientPoliceCookie', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientPoliceCookie', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -448,9 +448,9 @@ RegisterNetEvent("mb-sugar:PoliceCookie", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:ChocDonut", function()
+RegisterNetEvent("mb-trey:ChocDonut", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientChocDonut', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientChocDonut', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -484,9 +484,9 @@ RegisterNetEvent("mb-sugar:ChocDonut", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:PinkDonut", function()
+RegisterNetEvent("mb-trey:PinkDonut", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientPinkDonut', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientPinkDonut', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -520,9 +520,9 @@ RegisterNetEvent("mb-sugar:PinkDonut", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:PlainDonut", function()
+RegisterNetEvent("mb-trey:PlainDonut", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientPlainDonut', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientPlainDonut', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -556,9 +556,9 @@ RegisterNetEvent("mb-sugar:PlainDonut", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:CheeseCake", function()
+RegisterNetEvent("mb-trey:CheeseCake", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCheeseCake', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientCheeseCake', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -593,9 +593,9 @@ RegisterNetEvent("mb-sugar:CheeseCake", function()
 	end
 end)
 
-RegisterNetEvent("mb-sugar:Cookie", function()
+RegisterNetEvent("mb-trey:Cookie", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('mb-sugar:server:get:ingredientCookie', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('mb-trey:server:get:ingredientCookie', function(HasItems)  
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
@@ -646,7 +646,7 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:Smoothie", function()
+RegisterNetEvent("mb-trey:Smoothie", function()
     if onDuty then
     QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)
         if HasItem then
@@ -687,46 +687,46 @@ end)
 
 
 
-RegisterNetEvent("mb-sugar:DutyB", function()
+RegisterNetEvent("mb-trey:DutyB", function()
     TriggerServerEvent("QBCore:ToggleDuty")
 end)
 
 
-RegisterNetEvent("mb-sugar:Tray1", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "sugartray1")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "sugartray1", {
+RegisterNetEvent("mb-trey:Tray1", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "treytray1")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray1", {
         maxweight = 10000,
         slots = 6,
     })
 end)
 
-RegisterNetEvent("mb-sugar:Tray4", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "sugartray4")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "sugartray4", {
+RegisterNetEvent("mb-trey:Tray4", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "treytray4")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray4", {
         maxweight = 10000,
         slots = 6,
     })
 end)
 
-RegisterNetEvent("mb-sugar:Tray3", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "sugartray3")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "sugartray3", {
+RegisterNetEvent("mb-trey:Tray3", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "treytray3")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray3", {
         maxweight = 10000,
         slots = 6,
     })
 end)
 
-RegisterNetEvent("mb-sugar:Storage", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "sugarstorage")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "sugarstorage", {
+RegisterNetEvent("mb-trey:Storage", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "treystorage")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treystorage", {
         maxweight = 250000,
         slots = 40,
     })
 end)
 
-RegisterNetEvent("mb-sugar:Storage2", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "sugarstorage2")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "sugarstorage2", {
+RegisterNetEvent("mb-trey:Storage2", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "treystorage2")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treystorage2", {
         maxweight = 250000,
         slots = 40,
     })
@@ -777,7 +777,7 @@ Citizen.CreateThread(function()
     
 
     exports['qb-target']:AddBoxZone("Duty", vector3(54.87, -126.21, 55.46), 3.3, 0.6, {
-        name="sugar on duty",
+        name="trey on duty",
         heading=146,
         --debugPoly=true,
         minZ=55.16,
@@ -785,17 +785,17 @@ Citizen.CreateThread(function()
       }, {
         options = {
             {  
-                event = "mb-sugar:DutyB",
+                event = "mb-trey:DutyB",
                 icon = "far fa-clipboard",
                 label = "Clock On/Off",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("Sugar tray", vector3(53.52, -125.63, 55.46), 0.8, 0.8, {
-        name="Sugar Tray",
+    exports['qb-target']:AddBoxZone("Trey tray", vector3(53.52, -125.63, 55.46), 0.8, 0.8, {
+        name="Trey Tray",
         heading=340,
         --debugPoly=true,
         minZ=55.46,
@@ -803,7 +803,7 @@ Citizen.CreateThread(function()
     }, {
         options = {
             {
-                event = "mb-sugar:Tray1",
+                event = "mb-trey:Tray1",
                 icon = "far fa-clipboard",
                 label = "Tray 1",
             },
@@ -811,8 +811,8 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("sugardrinks", vector3(61.5, -120.89, 55.45), 0.8, 1.8, {
-        name="sugar drinks",
+    exports['qb-target']:AddBoxZone("treydrinks", vector3(61.5, -120.89, 55.45), 0.8, 1.8, {
+        name="trey drinks",
         heading=295,
         --debugPoly=true,
         minZ=55.45,
@@ -820,17 +820,17 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "Sugar:Client:DrinksMenu",
+                event = "Trey:Client:DrinksMenu",
                 icon = "fas fa-filter",
                 label = "Make Some Drinks",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
     })
 
     exports['qb-target']:AddBoxZone("ordermenu", vector3(55.49, -121.12, 55.45), 2.8, 0.4, {
-        name="sugar order",
+        name="trey order",
         heading=340,
         --debugPoly=true,
         minZ=53.05,
@@ -838,17 +838,17 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "Sugar:Client:OrderMenu",
+                event = "Trey:Client:OrderMenu",
                 icon = "fas fa-laptop",
                 label = "Order Ingredients!",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("sugardisplay", vector3(56.55, -126.89, 55.46), 0.6, 1.6, {
-        name="sugar display shelf",
+    exports['qb-target']:AddBoxZone("treydisplay", vector3(56.55, -126.89, 55.46), 0.6, 1.6, {
+        name="trey display shelf",
         heading=340,
         --debugPoly=true,
         minZ=51.86,
@@ -856,10 +856,10 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "mb-sugar:Storage",
+                event = "mb-trey:Storage",
                 icon = "fas fa-box",
                 label = "Storage",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
@@ -874,17 +874,17 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "Sugar:Client:SugarMenu",
+                event = "Trey:Client:TreyMenu",
                 icon = "fas fa-cupcake",
                 label = "Goodies to Make",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
     })
 
     exports['qb-target']:AddBoxZone("plain", vector3(57.92, -119.53, 55.45), 0.4, 0.4, {
-        name="sugarplain",
+        name="treyplain",
         heading=340,
         --debugPoly=true,
         minZ=55.25,
@@ -892,10 +892,10 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "Sugar:Client:PlainMenu",
+                event = "Trey:Client:PlainMenu",
                 icon = "fas fa-donut",
                 label = "Make Some Bases",
-                job = "sugar",
+                job = "trey",
             },
         },
                 distance = 1.5
@@ -910,18 +910,18 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "Sugar:Client:DonutMenu",
+                event = "Trey:Client:DonutMenu",
                 icon = "fas fa-donut",
                 label = "Make a Donut Box",
-                job = "sugar",
+                job = "trey",
             },
         },
                 distance = 1.5
     })
 
 
-    exports['qb-target']:AddBoxZone("Sugar_register_1", vector3(55.49, -126.48, 55.46), 0.6, 0.6, {
-        name="Sugar_register_1",
+    exports['qb-target']:AddBoxZone("Trey_register_1", vector3(55.49, -126.48, 55.46), 0.6, 0.6, {
+        name="Trey_register_1",
         heading=340,
         debugPoly=false,
         minZ=55.26,
@@ -929,11 +929,11 @@ Citizen.CreateThread(function()
         }, {
             options = {
                 {
-                event = "mb-sugar:bill",
+                event = "mb-trey:bill",
                 parms = "1",
                 icon = "fas fa-credit-card",
                 label = "Charge Customer",
-                job = "sugar",
+                job = "trey",
             },
         },
         distance = 1.5
@@ -944,8 +944,8 @@ Citizen.CreateThread(function()
 end)
 
 
--- sugar Menus
-RegisterNetEvent('Sugar:Client:PlainMenu', function()
+-- trey Menus
+RegisterNetEvent('Trey:Client:PlainMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "| Make Base |",
@@ -955,14 +955,14 @@ RegisterNetEvent('Sugar:Client:PlainMenu', function()
             header = "• Plain Cupcake",
             txt = "Cake Mix",
             params = {
-                event = "mb-sugar:Cupcake"
+                event = "mb-trey:Cupcake"
             }
         },
         {
             header = "• Plain Donut",
             txt = "Donut Mix",
             params = {
-                event = "mb-sugar:PlainDonut"
+                event = "mb-trey:PlainDonut"
             }
         },
         {
@@ -975,7 +975,7 @@ RegisterNetEvent('Sugar:Client:PlainMenu', function()
     })
 end)
 
-RegisterNetEvent('Sugar:Client:DonutMenu', function()
+RegisterNetEvent('Trey:Client:DonutMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "| Make Donut Box |",
@@ -985,7 +985,7 @@ RegisterNetEvent('Sugar:Client:DonutMenu', function()
             header = "• Donut Box",
             txt = "Pink Donut x6, Chocolate Donut x6",
             params = {
-                event = "mb-sugar:CreateDonutBox"
+                event = "mb-trey:CreateDonutBox"
             }
         },
         {
@@ -998,7 +998,7 @@ RegisterNetEvent('Sugar:Client:DonutMenu', function()
     })
 end)
 
-RegisterNetEvent('Sugar:Client:SugarMenu', function()
+RegisterNetEvent('Trey:Client:TreyMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "| Let's Make Some Goodies! |",
@@ -1008,77 +1008,77 @@ RegisterNetEvent('Sugar:Client:SugarMenu', function()
             header = "• Police Cookie",
             txt = "Cookie Mix",
             params = {
-                event = "mb-sugar:PoliceCookie"
+                event = "mb-trey:PoliceCookie"
             }
         },
         {
             header = "• Ems Cupcake",
             txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:EmsCupcake"
+                event = "mb-trey:EmsCupcake"
             }
         },
         {
             header = "• Car Cupcake",
             txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:CarCupcake"
+                event = "mb-trey:CarCupcake"
             }
         },
         {
             header = "• Chocolate Cupcake",
             txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:ChocolateCupcake"
+                event = "mb-trey:ChocolateCupcake"
             }
         },
         {
             header = "• Red Velvet Cupcake",
             txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:RvCupcake"
+                event = "mb-trey:RvCupcake"
             }
         },
         {
             header = "• Birthday Cupcake",
             txt = "Plain Cupcake",
             params = {
-                event = "mb-sugar:BirthdayCupcake"
+                event = "mb-trey:BirthdayCupcake"
             }
         },
         {
             header = "• Chocolate Donut",
             txt = "Plain Donut",
             params = {
-                event = "mb-sugar:ChocDonut"
+                event = "mb-trey:ChocDonut"
             }
         },
         {
             header = "• Pink Donut",
             txt = "Plain Donut",
             params = {
-                event = "mb-sugar:PinkDonut"
+                event = "mb-trey:PinkDonut"
             }
         },
         {
             header = "• Cookie",
             txt = "Cookie Mix",
             params = {
-                event = "mb-sugar:Cookie"
+                event = "mb-trey:Cookie"
             }
         },
         {
             header = "• Wedding Cake",
             txt = "Cake Mix x10",
             params = {
-                event = "mb-sugar:CreateWeddingCakeFull"
+                event = "mb-trey:CreateWeddingCakeFull"
             }
         },
         {
             header = "• Cheese Cake",
             txt = "Cake Mix, Strawberry",
             params = {
-                event = "mb-sugar:CheeseCake"
+                event = "mb-trey:CheeseCake"
             }
         },
         {
@@ -1091,7 +1091,7 @@ RegisterNetEvent('Sugar:Client:SugarMenu', function()
     })
 end)
         
-RegisterNetEvent('Sugar:Client:OrderMenu', function()
+RegisterNetEvent('Trey:Client:OrderMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "| Order Station |",
@@ -1101,14 +1101,14 @@ RegisterNetEvent('Sugar:Client:OrderMenu', function()
             header = "• Order Items",
             txt = "Order New Ingredients!",
             params = {
-                event = "mb-sugar:shop"
+                event = "mb-trey:shop"
             }
         },
         {
             header = "• Look on Shelf",
             txt = "See what you have in storage",
             params = {
-                event = "mb-sugar:Storage2"
+                event = "mb-trey:Storage2"
             }
         },
         {
@@ -1121,7 +1121,7 @@ RegisterNetEvent('Sugar:Client:OrderMenu', function()
     })
 end)
 
-RegisterNetEvent('Sugar:Client:DrinksMenu', function()
+RegisterNetEvent('Trey:Client:DrinksMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "| Drink Menu |",
@@ -1131,7 +1131,7 @@ RegisterNetEvent('Sugar:Client:DrinksMenu', function()
             header = "• Smoothie",
             txt = "Smoothie Mix",
             params = {
-                event = "mb-sugar:Smoothie"
+                event = "mb-trey:Smoothie"
             }
         },
         {
@@ -1146,7 +1146,7 @@ end)
 
 
 -- Till Stuff --
-RegisterNetEvent("mb-sugar:bill", function()
+RegisterNetEvent("mb-trey:bill", function()
     local dialog = exports["qb-input"]:ShowInput({
         header = "Create Receipt",
         inputs = {
@@ -1166,16 +1166,16 @@ RegisterNetEvent("mb-sugar:bill", function()
     })
     if dialog then
         if not dialog.citizenid or not dialog.billprice then return end
-        TriggerServerEvent("mb-sugar:bill:player", dialog.citizenid, dialog.billprice)
+        TriggerServerEvent("mb-trey:bill:player", dialog.citizenid, dialog.billprice)
     end
 end)
 
 
  
-RegisterNetEvent("mb-sugar:shop", function()
+RegisterNetEvent("mb-trey:shop", function()
 
 
-    TriggerServerEvent("inventory:server:OpenInventory", "shop", "sugar", Config.Items)
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "treybakery", Config.Items)
 
 
 end)
