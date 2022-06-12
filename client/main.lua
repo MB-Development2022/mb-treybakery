@@ -71,7 +71,6 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then 
                     QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
                         disableMovement = true,
                         disableCarMovement = false,
@@ -95,32 +94,7 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
                     end, function()
                         TriggerEvent('inventory:client:busy:status', false)
                         Working = false
-                    end, "donutbox")
-                else
-                    QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
-    
-    
-                        TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
-    
-                        QBCore.Functions.Notify("You made a Donut Box", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end)
+                    end, "donutbox")            
                 end
 			else
    				QBCore.Functions.Notify("You dont have the items to make this", "error")
@@ -137,48 +111,26 @@ RegisterNetEvent("mb-trey:EmsCupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making EMS Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "emscupcake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["emscupcake"], "add")
-                        QBCore.Functions.Notify("You made a EMS Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "emscupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making EMS Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "emscupcake", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making EMS Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "emscupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["emscupcake"], "add")
                     QBCore.Functions.Notify("You made a EMS Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "emscupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -194,48 +146,26 @@ RegisterNetEvent("mb-trey:CarCupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Car Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "carcupcake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["carcupcake"], "add")
-                        QBCore.Functions.Notify("You made a Car Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "carcupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Car Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "carcupcake", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Car Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "carcupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["carcupcake"], "add")
                     QBCore.Functions.Notify("You made a Car Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "carcupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -251,48 +181,26 @@ RegisterNetEvent("mb-trey:ChocolateCupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "chocolatecupcake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocolatecupcake"], "add")
-                        QBCore.Functions.Notify("You made a Chocolate Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "chocolaatecupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "chocolatecupcake", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "chocolatecupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocolatecupcake"], "add")
                     QBCore.Functions.Notify("You made a Chocolate Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "chocolaatecupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -308,48 +216,26 @@ RegisterNetEvent("mb-trey:RvCupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Red Velvet Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "rvcupcake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["rvcupcake"], "add")
-                        QBCore.Functions.Notify("You made a Red Velvet Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "rvcupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Red Velvet Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "rvcupcake", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Red Velvet Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "rvcupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["rvcupcake"], "add")
                     QBCore.Functions.Notify("You made a Red Velvet Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "rvcupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -365,48 +251,26 @@ RegisterNetEvent("mb-trey:CreateWeddingCakeFull", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making a Wedding Cake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
-                        TriggerServerEvent('QBCore:Server:AddItem', "weddingcakefull", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weddingcakefull"], "add")
-                        QBCore.Functions.Notify("You made a Wedding Cake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "weddingcakefull")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making a Wedding Cake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
-                    TriggerServerEvent('QBCore:Server:AddItem', "weddingcakefull", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making a Wedding Cake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "weddingcakefull", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weddingcakefull"], "add")
                     QBCore.Functions.Notify("You made a Wedding Cake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "weddingcakefull")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -422,48 +286,26 @@ RegisterNetEvent("mb-trey:BirthdayCupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Birthday Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "birthdaycupcake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["birthdaycupcake"], "add")
-                        QBCore.Functions.Notify("You made a Birthday Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "birthdaycupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Birthday Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "birthdaycupcake", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Birthday Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cupcake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "birthdaycupcake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["birthdaycupcake"], "add")
                     QBCore.Functions.Notify("You made a Birthday Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "birthdaycupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -479,48 +321,26 @@ RegisterNetEvent("mb-trey:Cupcake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making a Plain Cupcake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
-                        TriggerServerEvent('QBCore:Server:AddItem', "cupcake", 10)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cupcake"], "add")
-                        QBCore.Functions.Notify("You made a Plain Cupcake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "cupcake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making a Plain Cupcake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
-                    TriggerServerEvent('QBCore:Server:AddItem', "cupcake", 10)
+				QBCore.Functions.Progressbar("pickup_sla", "Making a Plain Cupcake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "cupcake", 10)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cupcake"], "add")
                     QBCore.Functions.Notify("You made a Plain Cupcake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "cupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -536,48 +356,26 @@ RegisterNetEvent("mb-trey:PoliceCookie", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Police Cookie..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "policecookie", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["policecookie"], "add")
-                        QBCore.Functions.Notify("You made a Police Cookie", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "policecookie")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Police Cookie..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "policecookie", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Police Cookie..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "policecookie", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["policecookie"], "add")
                     QBCore.Functions.Notify("You made a Police Cookie", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "policecookie")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -593,48 +391,26 @@ RegisterNetEvent("mb-trey:ChocDonut", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Donut..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocdonut"], "add")
-                        QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "chocodonut")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Donut..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Chocolate Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["chocdonut"], "add")
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "chocodonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -650,48 +426,26 @@ RegisterNetEvent("mb-trey:PinkDonut", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Pink Donut..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["pinkdonut"], "add")
-                        QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "pinkdonut")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Pink Donut..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Pink Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "plaindonut", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["pinkdonut"], "add")
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "pinkdonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -707,48 +461,26 @@ RegisterNetEvent("mb-trey:PlainDonut", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Plain Donut..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "donutmix", 10)
-                        TriggerServerEvent('QBCore:Server:AddItem', "plaindonut", 10)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["plaindonut"], "add")
-                        QBCore.Functions.Notify("You made Plain Donuts", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "plaindonut")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Plain Donut..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "donutmix", 10)
-                    TriggerServerEvent('QBCore:Server:AddItem', "plaindonut", 10)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Plain Donut..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "donutmix", 10)
+					TriggerServerEvent('QBCore:Server:AddItem', "plaindonut", 10)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["plaindonut"], "add")
                     QBCore.Functions.Notify("You made Plain Donuts", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false			
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "plaindonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -764,50 +496,27 @@ RegisterNetEvent("mb-trey:CheeseCake", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Strawberry Cheese Cake..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "strawberry", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "scheesecake", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["scheesecake"], "add")
-                        QBCore.Functions.Notify("You made a Strawberry Cheese Cake", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "scheesecake")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Strawberry Cheese Cake..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Strawberry Cheese Cake..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cakemix", 1)
                     TriggerServerEvent('QBCore:Server:RemoveItem', "strawberry", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "scheesecake", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "scheesecake", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["scheesecake"], "add")
                     QBCore.Functions.Notify("You made a Strawberry Cheese Cake", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "scheesecake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -823,48 +532,26 @@ RegisterNetEvent("mb-trey:Cookie", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                if Config.ProjectSlothPB then
-                    QBCore.Functions.Progressbar("pickup_sla", "Making Cookie..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
-                        TriggerServerEvent('QBCore:Server:AddItem', "cookie", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cookie"], "add")
-                        QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "cookie")
-                else QBCore.Functions.Progressbar("pickup_sla", "Making Cookie..", 4000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = false,
-                }, {
-                    animDict = "mp_common",
-                    anim = "givetake1_a",
-                    flags = 8,
-                }, {}, {}, function() -- Done
-                    Working = false
-                    TriggerEvent('inventory:client:busy:status', false)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
-                    TriggerServerEvent('QBCore:Server:AddItem', "cookie", 1)
+				QBCore.Functions.Progressbar("pickup_sla", "Making Cookie..", 4000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = false,
+				}, {
+					animDict = "mp_common",
+					anim = "givetake1_a",
+					flags = 8,
+				}, {}, {}, function() -- Done
+					Working = false
+					TriggerEvent('inventory:client:busy:status', false)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "cookiemix", 1)
+					TriggerServerEvent('QBCore:Server:AddItem', "cookie", 1)
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cookie"], "add")
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
-                end, function()
-                    TriggerEvent('inventory:client:busy:status', false)
-                    Working = false				
-                    end)
-                end
+				end, function()
+					TriggerEvent('inventory:client:busy:status', false)
+					Working = false
+				end, "cookie")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -936,27 +623,8 @@ end)
 -- Functions --
 function MakeSmoothie()
     TriggerServerEvent('QBCore:Server:RemoveItem', "smoothiemix", 1)
-    if not Working then
-        if Config.ProjectSlothPB then
-            QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
-                disableMovement = true,
-                disableCarMovement = false,
-                disableMouse = false,
-                disableCombat = false,
-            }, {
-                animDict = "mp_common",
-                anim = "givetake1_a",
-                flags = 8,
-            }, {}, {}, function() -- Done
-                Working = false
-                TriggerServerEvent('QBCore:Server:AddItem', "smoothie", 1)
-                TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["smoothie"], "add")
-                QBCore.Functions.Notify("You made a Smoothie", "success")
-            end, function()
-                TriggerEvent('inventory:client:busy:status', false)
-                Working = false
-            end, "smoothie")
-        else QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
+    if not Working then 
+        QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
             disableMovement = true,
             disableCarMovement = false,
             disableMouse = false,
@@ -973,8 +641,7 @@ function MakeSmoothie()
         end, function()
             TriggerEvent('inventory:client:busy:status', false)
             Working = false
-            end)
-        end        
+        end, "smoothie")
     end
 end  
    
@@ -1387,438 +1054,177 @@ end)
 RegisterNetEvent("consumables:client:emscupcake")
 AddEventHandler("consumables:client:emscupcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating EMS Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-        end, "emscupcake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eaating EMS Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Ems Cupcake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:carcupcake")
 AddEventHandler("consumables:client:carcupcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Car Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "carcupcake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Car Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Car Cupcake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:chocolatecupcake")
 AddEventHandler("consumables:client:chocolatecupcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Chocolate Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "chocolaatecupcake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Chocolate Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Chocolate Cupcake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:rvcupcake")
 AddEventHandler("consumables:client:rvcupcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating RV Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "chocolaatecupcake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating RV Cupcake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Red Velvet Cupcake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:weddingcake")
 AddEventHandler("consumables:client:weddingcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Wedding Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "weddingcake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Wedding Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating a Slice of Wedding Cake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:birthdaycupcake")
 AddEventHandler("consumables:client:birthdaycupcake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"sandwich"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Birthday Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerEvent("evidence:client:SetStatus", "food", 200)
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Consumeables[itemName])
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "birthdaycake")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Birthday Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerEvent("evidence:client:SetStatus", "food", 200)
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Consumeables[itemName])
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Birthday Cupcake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerEvent("evidence:client:SetStatus", "food", 200)
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Consumeables[itemName])
+    end)
 end)
 
 RegisterNetEvent("consumables:client:policecookie")
 AddEventHandler("consumables:client:policecookie", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Police Cookie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "policecookie")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Police Cookie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Poice Cookie", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:chocdonut")
 AddEventHandler("consumables:client:chocdonut", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Chocolate Donut..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "chocdonut")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Chocolate Donut..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Chocolate Donut", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:pinkdonut")
 AddEventHandler("consumables:client:pinkdonut", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Pink Donut..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "pinkdonut")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Pink Donut..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Pink Donut", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:scheesecake")
 AddEventHandler("consumables:client:scheesecake", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Strawberry Cheese Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "pinkdonut")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Strawberry Cheese Cake..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Strawberry Cheese Cake", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 RegisterNetEvent("consumables:client:cookie")
 AddEventHandler("consumables:client:cookie", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Cookie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "pinkdonut")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Eating Cookie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("eat_something", "Eating Cookie", 6500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
+    end)
 end)
 
 --Trey Drinks
@@ -1826,40 +1232,16 @@ end)
 RegisterNetEvent("consumables:client:smoothie")
 AddEventHandler("consumables:client:smoothie", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"coffe"})
-    if Config.ProjectSlothPB then 
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Drinking Smoothie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent('hud:server:RelieveStress', math.random(12,15))
-            TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end, "pinkdonut")
-    else
-        TriggerEvent('inventory:client:busy:status', true)
-        QBCore.Functions.Progressbar("pickup_sla", "Drinking Smoothie..", 4000, false, true, {
-            disableMovement = true,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = false,
-        }, {}, {}, {}, function() -- Done
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-            TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-            TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
-            TriggerEvent('inventory:client:busy:status', false)
-        end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Working = false
-        end)
-    end
+    QBCore.Functions.Progressbar("drink_something", "Drinking Soda..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12,15))
+        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
+    end)
 end)
 
