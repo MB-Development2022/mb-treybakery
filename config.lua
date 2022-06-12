@@ -1,7 +1,6 @@
 Config = {}
 
 Config.JimShops = false
-Config.ProjectSlothPB = true
 
 Config.Items = {
 label = "Shop",
