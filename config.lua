@@ -2,11 +2,10 @@ Config = {}
 
 -- Polyzone Info
 Locations = {
-    [1] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Mixer},
-    [2] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Oven},
-    [3] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = ChoppingBoard},
-    [4] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = CoffeeMachine},
-}
+    [1] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 55.25, maxz = 55.85, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Mixer},
+    [2] = {coords = vector3(60.87, -122.52, 55.45), heading = 340, length = 0.6, width = 0.8, minz = 53.25, maxz = 55.65, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Oven},
+    [3] = {coords = vector3(60.56, -123.2, 55.45), heading = 350, length = 0.6, width = 0.4, minz = 55.25, maxz = 55.65, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = ChoppingBoard},
+    [4] = {coords = vector3(61.5, -120.89, 55.45), heading = 295, length = 0.8, width = 1.8, minz = 55.46, maxz = 55.86, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = CoffeeMachine},
 
 -- Menu Info
 Mixer = { 
