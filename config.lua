@@ -51,19 +51,19 @@ label = "Shop",
 
 --Food
 ConsumeablesEat = {
-    ["emscupcake"] = math.random(40, 50),
-    ["carcupcake"] = math.random(40, 50),
-    ["chocolatecupcake"] = math.random(40, 50),
-    ["rvcupcake"] = math.random(40, 50),
-    ["weddingcake"] = math.random(40, 50),
-    ["birthdaycupcake"] = math.random(70, 80),
-    ["policecookie"] = math.random(40, 50),
-    ["chocdonut"] = math.random(40, 50),
-    ["pinkdonut"] = math.random(40, 50),
-    ["scheesecake"] = math.random(40, 50),
-    ["cookie"] = math.random(40, 50),
+    ["emscupcake"] = {effect = math.random(40, 50), event = "consumables:client:emscupcake"},
+    ["carcupcake"] = {effect = math.random(40, 50), event = "consumables:client:carcupcake"},
+    ["chocolatecupcake"] = {effect = math.random(40, 50), event = "consumables:client:chocolatecupcake"},
+    ["rvcupcake"] = {effect = math.random(40, 50), event = "consumables:client:rvcupcake"},
+    ["weddingcake"] = {effect = math.random(40, 50), event = "consumables:client:weddingcake"},
+    ["birthdaycupcake"] = {effect = math.random(70, 80), event = "consumables:client:birthdaycupcake"},
+    ["policecookie"] = {effect = math.random(40, 50), event = "consumables:client:policecookie"},
+    ["chocdonut"] = {effect = math.random(40, 50), event = "consumables:client:chocdonut"},
+    ["pinkdonut"] = {effect = math.random(40, 50), event = "consumables:client:pinkdonut"},
+    ["scheesecake"] = {effect = math.random(40, 50), event = "consumables:client:scheesecake"},
+    ["cookie"] = {effect = math.random(40, 50), event = "consumables:client:cookie"},
 }
 --Drinks
 ConsumeablesDrink = {
-    ["smoothie"] = math.random(40, 50),
+    ["smoothie"] = {effect = math.random(40, 50), event = "consumables:client:smoothie"}
 }

@@ -71,31 +71,30 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-                    QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
-                        disableMovement = true,
-                        disableCarMovement = false,
-                        disableMouse = false,
-                        disableCombat = false,
-                    }, {
-                        animDict = "mp_common",
-                        anim = "givetake1_a",
-                        flags = 8,
-                    }, {}, {}, function() -- Done
-                        Working = false
-                        TriggerEvent('inventory:client:busy:status', false)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
-                        TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
-    
-    
-                        TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
-                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
-    
-                        QBCore.Functions.Notify("You made a Donut Box", "success")
-                    end, function()
-                        TriggerEvent('inventory:client:busy:status', false)
-                        Working = false
-                    end, "donutbox")            
-                end
+                QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
+                    disableMovement = true,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = false,
+                }, {
+                    animDict = "mp_common",
+                    anim = "givetake1_a",
+                    flags = 8,
+                }, {}, {}, function() -- Done
+                    Working = false
+                    TriggerEvent('inventory:client:busy:status', false)
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
+
+
+                    TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
+                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
+
+                    QBCore.Functions.Notify("You made a Donut Box", "success")
+                end, function()
+                    TriggerEvent('inventory:client:busy:status', false)
+                    Working = false
+                end, "donutbox")            
 			else
    				QBCore.Functions.Notify("You dont have the items to make this", "error")
 			end
@@ -1062,7 +1061,7 @@ AddEventHandler("consumables:client:emscupcake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1078,7 +1077,7 @@ AddEventHandler("consumables:client:carcupcake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1094,7 +1093,7 @@ AddEventHandler("consumables:client:chocolatecupcake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1110,7 +1109,7 @@ AddEventHandler("consumables:client:rvcupcake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1126,7 +1125,7 @@ AddEventHandler("consumables:client:weddingcake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1158,7 +1157,7 @@ AddEventHandler("consumables:client:policecookie", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1174,7 +1173,7 @@ AddEventHandler("consumables:client:chocdonut", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1190,7 +1189,7 @@ AddEventHandler("consumables:client:pinkdonut", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1206,7 +1205,7 @@ AddEventHandler("consumables:client:scheesecake", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1222,7 +1221,7 @@ AddEventHandler("consumables:client:cookie", function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName].effect.effect)
         TriggerServerEvent('hud:server:RelieveStress', math.random(7, 9))
     end)
 end)
@@ -1241,7 +1240,7 @@ AddEventHandler("consumables:client:smoothie", function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent('hud:server:RelieveStress', math.random(12,15))
-        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
+        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName].effect)
     end)
 end)
 
