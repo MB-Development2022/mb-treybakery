@@ -1,141 +1,89 @@
-MB = {
+Config = {}
 
-JimShops = false,
+-- Polyzone Info
+Locations = {
+    [1] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Mixer},
+    [2] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = Oven},
+    [3] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = ChoppingBoard},
+    [4] = {coords = vector3(57.92, -119.53, 55.45), heading = 340, length = 0.4, width = 0.4, minz = 0, maxz = 0, distance = 1, icon = "fas fa-blender", label = "Use Blender", station = CoffeeMachine},
+}
 
-Items = {
-label = "Shop",
-    slots = 7,
-    items = {
-        [1] = {
-            name = "cakemix",  
-            price = 0,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 1,
+-- Menu Info
+Mixer = { 
+    [1] = {
+        header = "Plain Cupcake:",
+        txt = "- Cupcake Mix x1",
+        item = "cupcake",
+        amount = 1,
+        required = {
+            [1] = {itemName = "meth_table", amount = 1},
         },
-        [2] = {
-            name = "cookiemix",   
-            price = 0,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 2,
-        },
-        [3] = {
-            name = "donutmix", 
-            price = 0,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 3,
-        },
-        [4] = {
-            name = "smoothiemix",  
-            price = 0,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 4,
-        },
-        [5] = {
-            name = "strawberry",  
-            price = 0,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 5,
-        },
-    }
-},
-
-Registers = {
-    {
-        coords = vector3(),
-        length = 0,
-        width = 0,
-        icon = "",
-        event = "",
-        radius = 1,
-    },
-},
-
-Stash = {
-    {
-        coords = vector3(),
-        length = 0,
-        width = 0,
-        icon = "",
-        event = "",
-        radius = 1,
-    }
-},
-
-Trays = {
-    {
-        coords = vector3(),
-        length = 0,
-        width = 0,
-        icon = "",
-        event = "",
-        radius = 1,
-    }
-},
-
-WorkAreas = {
-    ["blender"] = {
-        coords = vector3(57.92, -119.53, 55.45),
-        heading = 340,
-        length = 0.4,
-        width = 0.4,
-        icon = "fas fa-blender",
-        label = "Use Blender",
-        progressMsg = "Blending...",
-        progressTime = 4000,
+        pbmsg = "Mixing...",
+        pbtime = 4000,
         animDict = "amb@prop_human_bbq@male@base",
         anim = "base",
     },
-    ["oven"] = {
-        coords = vector3(57.92, -119.53, 55.45),
-        heading = 340,
-        length = 0.4,
-        width = 0.4,
-        icon = "",
-        label = "",
-        progressMsg = "",
-        progressTime = 4000,
-        animDict = "amb@world_human_stand_fire@male@idle_a",
-        anim = "idle_a",
+    [2] = {
+        header = "Plain Donut:",
+        txt = "- Donut Mix x1",
+        item = "plaindonut",
+        amount = 1,
+        required = {
+            [1] = {itemName = "meth_table", amount = 1},
+        },
+        pbmsg = "Mixing...",
+        pbtime = 4000,
+        animDict = "amb@prop_human_bbq@male@base",
+        anim = "base",
     },
-    ["choppingboard"]= {
-        coords = vector3(57.92, -119.53, 55.45),
-        heading = 340,
-        length = 0.4,
-        width = 0.4,
-        icon = "",
-        label = "",
-        progressMsg = "Chopping...",
-        progressTime = 4000,
-        animDict = "anim@heists@prison_heiststation@cop_reactions",
-        anim = "cop_b_idle",
+}
+
+Oven = {
+    header = "",
+    txt = "",
+    item = "",
+    amount = 1,
+    required = {
+        [1] = {itemName = "", amount = 1},
     },
-    ["coffeemachine"] = {
-        coords = vector3(57.92, -119.53, 55.45),
-        heading = 340,
-        length = 0.4,
-        width = 0.4,
-        icon = "",
-        label = "",
-        progressMsg = "Pouring...",
-        progressTime = 4000,
-        animDict = "mp_arresting",
-        anim = "a_uncuff",
-    }
-},
+    progressMsg = "",
+    progressTime = 4000,
+    animDict = "amb@world_human_stand_fire@male@idle_a",
+    anim = "idle_a",
+}
+
+ChoppingBoard = {
+    header = "",
+    txt = "",
+    item = "",
+    amount = 1,
+    required = {
+        [1] = {itemName = "", amount = 1},
+    },
+    progressMsg = "Chopping...",
+    progressTime = 4000,
+    animDict = "anim@heists@prison_heiststation@cop_reactions",
+    anim = "cop_b_idle",
+}
+
+CoffeeMachine = {
+    header = "",
+    txt = "",
+    item = "",
+    amount = 1,
+    required = {
+        [1] = {itemName = "", amount = 1},
+    },
+    progressMsg = "Pouring...",
+    progressTime = 4000,
+    animDict = "mp_arresting",
+    anim = "a_uncuff",
+}
+
 
 --Food
 ConsumeablesEat = {
-    ["emscupcake"] = {effect = math.random(40, 50), event = "consumables:client:emscupcake"},
+    ["emscupcake"] = {effect = math.random(40, 50), },
     ["carcupcake"] = {effect = math.random(40, 50), event = "consumables:client:carcupcake"},
     ["chocolatecupcake"] = {effect = math.random(40, 50), event = "consumables:client:chocolatecupcake"},
     ["rvcupcake"] = {effect = math.random(40, 50), event = "consumables:client:rvcupcake"},
@@ -146,9 +94,8 @@ ConsumeablesEat = {
     ["pinkdonut"] = {effect = math.random(40, 50), event = "consumables:client:pinkdonut"},
     ["scheesecake"] = {effect = math.random(40, 50), event = "consumables:client:scheesecake"},
     ["cookie"] = {effect = math.random(40, 50), event = "consumables:client:cookie"},
-},
+}
 --Drinks
 ConsumeablesDrink = {
     ["smoothie"] = {effect = math.random(40, 50), event = "consumables:client:smoothie"}
-    },
 }

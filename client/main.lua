@@ -588,16 +588,16 @@ RegisterNetEvent("mb-trey:Tray", function()
 end)
 
 RegisterNetEvent("mb-trey:Storage", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "treystorage")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treystorage", {
+    TriggerEvent("inventory:client:SetCurrentStash", "Trey Storage")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "Trey Storage", {
         maxweight = 250000,
         slots = 40,
     })
 end)
 
 RegisterNetEvent("mb-trey:Storage2", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "treystorage2")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treystorage2", {
+    TriggerEvent("inventory:client:SetCurrentStash", "Trey Storage 2")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "Trey Storage 2", {
         maxweight = 250000,
         slots = 40,
     })
@@ -1228,3 +1228,86 @@ AddEventHandler("consumables:client:smoothie", function(itemName)
     end)
 end)
 
+RegisterNetEvent("mb-treybakery:client:OpenMenu")
+AddEventHandler("mb-treybakery:client:OpenMenu", function(config)
+    local restaurantMenu = {}
+    for k, v in pairs(config) do
+        table.insert(restaurantMenu, {
+            header = v.header,
+            txt = v.txt,
+            params = {
+                event = 'mb-treybakery:client:CraftStation',
+                args = {
+                    item = v.item, --item that will be given
+                    required = v.required, -- required items to make
+                    progressbar = v.pbmsg, -- text to display on progressbar
+                    progresstime = v.pbtime, -- in milliseconds
+                    dictionary = v.animDict, --dictionary name for animation
+                    animname = v.anim, --animation name
+                    amount = v.amount
+                }
+            }
+        })
+    end
+    exports['qb-menu']:openMenu(restaurantMenu) 
+end)
+
+RegisterNetEvent("mb-treybakery:client:CraftStation")
+AddEventHandler("mb-treybakery:client:CraftStation", function(data)
+    QBCore.Functions.TriggerCallback("mb-treybakery:server:ingredients", function(HasItems)
+        if HasItems then
+            LoadAnimDict(data.dictionary)
+            TaskPlayAnim(PlayerPedId(), data.dictionary, data.animname, 6.0, -6.0, -1, 46, 0, 0, 0, 0)
+            FreezeEntityPosition(PlayerPedId(), true)
+            QBCore.Functions.Progressbar("pickup_sla", data.progressbar, data.progresstime, false, true, {
+                disableMovement = true,
+                disableCarMovement = false,
+                disableMouse = false,
+                disableCombat = false,
+            }, {}, {}, {}, function() -- Done
+                Working = false
+                TriggerEvent('inventory:client:busy:status', false)
+                ClearPedTasksImmediately(PlayerPedId())
+                FreezeEntityPosition(PlayerPedId(), false)
+                TriggerServerEvent('mb-treybakery:server:craft', data.required, data.item, data.amount)
+            end, function()
+                TriggerEvent('inventory:client:busy:status', false)
+                Working = false
+            end, data.item)   
+        else
+            QBCore.Functions.Notify("You don\'t have all the ingredients!", "error")
+        end
+    end, data.required)
+end)
+
+CreateThread(function()
+    for k,v in pairs(Locations) do 
+        exports['qb-target']:AddBoxZone(v.name, v.coords, v.length, v.width, {
+            name = v.name,
+            heading = v.heading,
+            debugPoly = true,
+            minZ = v.minz,
+            maxZ = v.maxz,
+            }, {
+                options = {
+                    {
+                        type = 'client',
+                        action = function()
+                            TriggerEvent("mb-treybakery:client:OpenMenu", v.station)
+                        end,
+                        icon = v.icon,
+                        label = v.label,
+                    },
+                },
+            distance = v.distance
+        })
+    end
+end)
+
+
+function LoadAnimDict(dict)
+    while (not HasAnimDictLoaded(dict)) do 
+        RequestAnimDict(dict)
+        Citizen.Wait(10)
+    end
+end
