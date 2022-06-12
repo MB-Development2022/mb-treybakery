@@ -818,14 +818,14 @@ RegisterNetEvent('Trey:Client:PlainMenu', function()
             txt = "",
         },
         {
-            header = "• Plain Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["cupcake"].image.." width=30px>".."Plain Cupcake",
             txt = "Cake Mix",
             params = {
                 event = "mb-trey:Cupcake"
             }
         },
         {
-            header = "• Plain Donut",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["plaindonut"].image.." width=30px>".."Plain Donut",
             txt = "Donut Mix",
             params = {
                 event = "mb-trey:PlainDonut"
@@ -848,7 +848,7 @@ RegisterNetEvent('Trey:Client:DonutMenu', function()
             txt = "",
         },
         {
-            header = "• Donut Box",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["donutbox"].image.." width=30px>".."Donut Box",
             txt = "Pink Donut x6, Chocolate Donut x6",
             params = {
                 event = "mb-trey:CreateDonutBox"
@@ -994,7 +994,7 @@ RegisterNetEvent('Trey:Client:DrinksMenu', function()
             txt = "",
         },
         {
-            header = "• Smoothie",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["smoothie"].image.." width=30px>".."Smoothie",
             txt = "Smoothie Mix",
             params = {
                 event = "mb-trey:Smoothie"
