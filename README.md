@@ -1,5 +1,5 @@
 # mb-trey
-This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Also has Config for jim-shops
+This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Also has Configurable options for jim-shops and swappable progressbars.
 
 
 
@@ -73,7 +73,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 
 
 # Dependencies: 
-* **Install all dependencies**
+* **All dependencies**
 
 [qb-core](https://github.com/qbcore-framework/qb-core)
 
@@ -86,6 +86,10 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 [qb-target](https://github.com/qbcore-framework/qb-target)
 
 [PolyZone](https://github.com/qbcore-framework/PolyZone)
+
+[ps-progressbar](https://github.com/Project-Sloth/progressbar)
+
+[jim-shops](https://github.com/jimathy/jim-shops)
 
 
 # Bakery MLO
