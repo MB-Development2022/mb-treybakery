@@ -1,24 +1,7 @@
 QBCore = exports['qb-core']:GetCoreObject()
-isLoggedIn = true
 PlayerJob = {}
 
 local onDuty = false
-
-function DrawText3Ds(x, y, z, text)
-	SetTextScale(0.35, 0.35)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(true)
-    AddTextComponentString(text)
-    SetDrawOrigin(x,y,z, 0)
-    DrawText(0.0, 0.0)
-    local factor = (string.len(text)) / 370
-    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
-    ClearDrawOrigin()
-end
-
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
@@ -55,51 +38,30 @@ Citizen.CreateThread(function()
     EndTextCommandSetBlipName(Trey)
 end) 
 
-
-
-
-
-
-
 RegisterNetEvent("mb-trey:WeddingCakeFull", function()
-    --remove box
     TriggerServerEvent('QBCore:Server:RemoveItem', "weddingcakefull", 1)
-    --add items from box
     TriggerServerEvent('QBCore:Server:AddItem', "weddingcake", 12)
-
-
 end)
 
-
-
 RegisterNetEvent("mb-trey:DonutBox", function()
-		local randomToy = math.random(1,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "donutbox", 1)
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 6)
-		TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 6)
+    local randomToy = math.random(1,10)
+    TriggerServerEvent('QBCore:Server:RemoveItem', "donutbox", 1)
+    TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 6)
+    TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 6)
 
-		if randomToy < 4 then
-			
-			QBCore.Functions.Notify("No toy in box :(", "error")
-			
-		elseif randomToy == 4 then
-			
-			TriggerServerEvent('QBCore:Server:AddItem', "trey-toy1", 1)
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy1"], "add")
-		
-		elseif randomToy < 10 and randomToy > 4 then
-			
-			QBCore.Functions.Notify("No toy in box :(", "error")
-			
-		elseif randomToy == 10 then	
- 
-			TriggerServerEvent('QBCore:Server:AddItem', "trey-toy2", 1)	
-            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy2"], "add")
-		else	
-            QBCore.Functions.Notify("No toy in box :(", "error")
-        end
+    if randomToy < 4 then
+        QBCore.Functions.Notify("No toy in box :(", "error")
+    elseif randomToy == 4 then
+        TriggerServerEvent('QBCore:Server:AddItem', "trey-toy1", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy1"], "add")
+    elseif randomToy < 10 and randomToy > 4 then
+        QBCore.Functions.Notify("No toy in box :(", "error")
+    elseif randomToy == 10 then	
+        TriggerServerEvent('QBCore:Server:AddItem', "trey-toy2", 1)	
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy2"], "add")
+    else	
+        QBCore.Functions.Notify("No toy in box :(", "error")
+    end
 end)
 
 
@@ -131,9 +93,8 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
                     QBCore.Functions.Notify("You made a Donut Box", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "donutbox")
 			else
    				QBCore.Functions.Notify("You dont have the items to make this", "error")
 			end
@@ -142,23 +103,6 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end  
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 RegisterNetEvent("mb-trey:EmsCupcake", function()
     if onDuty then
@@ -184,9 +128,8 @@ RegisterNetEvent("mb-trey:EmsCupcake", function()
                     QBCore.Functions.Notify("You made a EMS Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "emscupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -220,9 +163,8 @@ RegisterNetEvent("mb-trey:CarCupcake", function()
                     QBCore.Functions.Notify("You made a Car Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "carcupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -256,9 +198,8 @@ RegisterNetEvent("mb-trey:ChocolateCupcake", function()
                     QBCore.Functions.Notify("You made a Chocolate Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "chocolaatecupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -292,9 +233,8 @@ RegisterNetEvent("mb-trey:RvCupcake", function()
                     QBCore.Functions.Notify("You made a Red Velvet Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "rvcupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -328,9 +268,8 @@ RegisterNetEvent("mb-trey:CreateWeddingCakeFull", function()
                     QBCore.Functions.Notify("You made a Wedding Cake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "weddingcakefull")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -364,9 +303,8 @@ RegisterNetEvent("mb-trey:BirthdayCupcake", function()
                     QBCore.Functions.Notify("You made a Birthday Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "birthdaycupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -400,9 +338,8 @@ RegisterNetEvent("mb-trey:Cupcake", function()
                     QBCore.Functions.Notify("You made a Plain Cupcake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "cupcake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -436,9 +373,8 @@ RegisterNetEvent("mb-trey:PoliceCookie", function()
                     QBCore.Functions.Notify("You made a Police Cookie", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "policecookie")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -472,9 +408,8 @@ RegisterNetEvent("mb-trey:ChocDonut", function()
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "chocodonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -508,9 +443,8 @@ RegisterNetEvent("mb-trey:PinkDonut", function()
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "pinkdonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -544,9 +478,8 @@ RegisterNetEvent("mb-trey:PlainDonut", function()
                     QBCore.Functions.Notify("You made Plain Donuts", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "plaindonut")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -581,9 +514,8 @@ RegisterNetEvent("mb-trey:CheeseCake", function()
                     QBCore.Functions.Notify("You made a Strawberry Cheese Cake", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "scheesecake")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -617,9 +549,8 @@ RegisterNetEvent("mb-trey:Cookie", function()
                     QBCore.Functions.Notify("You made a Chocolate Donut", "success")
 				end, function()
 					TriggerEvent('inventory:client:busy:status', false)
-					QBCore.Functions.Notify("Cancelled..", "error")
 					Working = false
-				end)
+				end, "cookie")
 			else
    				QBCore.Functions.Notify("You dont have the ingredients to make this", "error")
 			end
@@ -628,23 +559,6 @@ RegisterNetEvent("mb-trey:Cookie", function()
 		QBCore.Functions.Notify("You must be Clocked into work", "error")
 	end
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 RegisterNetEvent("mb-trey:Smoothie", function()
     if onDuty then
@@ -659,33 +573,6 @@ RegisterNetEvent("mb-trey:Smoothie", function()
         QBCore.Functions.Notify("You must be Clocked into work", "error")
     end
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 RegisterNetEvent("mb-trey:DutyB", function()
     TriggerServerEvent("QBCore:ToggleDuty")
@@ -732,54 +619,36 @@ RegisterNetEvent("mb-trey:Storage2", function()
     })
 end)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- Functions --
 function MakeSmoothie()
-
     TriggerServerEvent('QBCore:Server:RemoveItem', "smoothiemix", 1)
-    QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
-        disableMovement = true,
-        disableCarMovement = false,
-        disableMouse = false,
-        disableCombat = false,
-    })
-    Citizen.Wait(4000)
-    TriggerServerEvent('QBCore:Server:AddItem', "smoothie", 1)
-    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["smoothie"], "add")
-    QBCore.Functions.Notify("You made a Smoothie", "success")
-    end  
+    if not Working then 
+        QBCore.Functions.Progressbar("pickup", "Filling up a cup..", 4000, false, true, {
+            disableMovement = true,
+            disableCarMovement = false,
+            disableMouse = false,
+            disableCombat = false,
+        }, {
+            animDict = "mp_common",
+            anim = "givetake1_a",
+            flags = 8,
+        }, {}, {}, function() -- Done
+            Working = false
+            TriggerServerEvent('QBCore:Server:AddItem', "smoothie", 1)
+            TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["smoothie"], "add")
+            QBCore.Functions.Notify("You made a Smoothie", "success")
+        end, function()
+            TriggerEvent('inventory:client:busy:status', false)
+            Working = false
+        end, "smoothie")
+    end
+end  
    
-
-
-
-
-
-
-
--- bt target -
-
 Citizen.CreateThread(function()
-    
-
     exports['qb-target']:AddBoxZone("Duty", vector3(54.87, -126.21, 55.46), 3.3, 0.6, {
         name="trey on duty",
         heading=146,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=55.16,
         maxZ=55.96
       }, {
@@ -797,7 +666,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("Trey tray", vector3(53.52, -125.63, 55.46), 0.8, 0.8, {
         name="Trey Tray",
         heading=340,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=55.46,
         maxZ=55.86
     }, {
@@ -814,7 +683,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("treydrinks", vector3(61.5, -120.89, 55.45), 0.8, 1.8, {
         name="trey drinks",
         heading=295,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=55.45,
         maxZ=56.05
         }, {
@@ -832,7 +701,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("ordermenu", vector3(55.49, -121.12, 55.45), 2.8, 0.4, {
         name="trey order",
         heading=340,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=53.05,
         maxZ=57.05,
         }, {
@@ -850,7 +719,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("treydisplay", vector3(56.55, -126.89, 55.46), 0.6, 1.6, {
         name="trey display shelf",
         heading=340,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=51.86,
         maxZ=55.86
         }, {
@@ -886,7 +755,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("plain", vector3(57.92, -119.53, 55.45), 0.4, 0.4, {
         name="treyplain",
         heading=340,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=55.25,
         maxZ=55.85
         }, {
@@ -904,7 +773,7 @@ Citizen.CreateThread(function()
     exports['qb-target']:AddBoxZone("donutbox", vector3(60.56, -123.2, 55.45), 0.6, 0.4, {
         name="donutbox",
         heading=350,
-        --debugPoly=true,
+        debugPoly = false,
         minZ=55.25,
         maxZ=55.65
         }, {
@@ -938,9 +807,6 @@ Citizen.CreateThread(function()
         },
         distance = 1.5
     })
-
-
-
 end)
 
 
@@ -1005,77 +871,77 @@ RegisterNetEvent('Trey:Client:TreyMenu', function()
             txt = "",
         },
         {
-            header = "• Police Cookie",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["policecookie"].image.." width=30px>".."Police Cookie",
             txt = "Cookie Mix",
             params = {
                 event = "mb-trey:PoliceCookie"
             }
         },
         {
-            header = "• Ems Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["emscupcake"].image.." width=30px>".."EMS Cupcake",
             txt = "Plain Cupcake",
             params = {
                 event = "mb-trey:EmsCupcake"
             }
         },
         {
-            header = "• Car Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["carcupcake"].image.." width=30px>".."Car Cupcake",
             txt = "Plain Cupcake",
             params = {
                 event = "mb-trey:CarCupcake"
             }
         },
         {
-            header = "• Chocolate Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["chocolatecupcake"].image.." width=30px>".."Chocolate Cupcake",
             txt = "Plain Cupcake",
             params = {
                 event = "mb-trey:ChocolateCupcake"
             }
         },
         {
-            header = "• Red Velvet Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["rvcupcake"].image.." width=30px>".."Red Velvet Cupcake",
             txt = "Plain Cupcake",
             params = {
                 event = "mb-trey:RvCupcake"
             }
         },
         {
-            header = "• Birthday Cupcake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["birthdaycupcake"].image.." width=30px>".."Birthday Cupcake",
             txt = "Plain Cupcake",
             params = {
                 event = "mb-trey:BirthdayCupcake"
             }
         },
         {
-            header = "• Chocolate Donut",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["chocdonut"].image.." width=30px>".."Chocolate Donut",
             txt = "Plain Donut",
             params = {
                 event = "mb-trey:ChocDonut"
             }
         },
         {
-            header = "• Pink Donut",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["pinkdonut"].image.." width=30px>".."Pink Donut",
             txt = "Plain Donut",
             params = {
                 event = "mb-trey:PinkDonut"
             }
         },
         {
-            header = "• Cookie",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["cookie"].image.." width=30px>".."Cookie",
             txt = "Cookie Mix",
             params = {
                 event = "mb-trey:Cookie"
             }
         },
         {
-            header = "• Wedding Cake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["weddingcake"].image.." width=30px>".."Wedding Cake",
             txt = "Cake Mix x10",
             params = {
                 event = "mb-trey:CreateWeddingCakeFull"
             }
         },
         {
-            header = "• Cheese Cake",
+            header = "<img src=nui://qb-inventory/html/images/"..QBCore.Shared.Items["scheesecake"].image.." width=30px>".."Strawberry Cheese Cake",
             txt = "Cake Mix, Strawberry",
             params = {
                 event = "mb-trey:CheeseCake"
@@ -1144,7 +1010,6 @@ RegisterNetEvent('Trey:Client:DrinksMenu', function()
     })
 end)
 
-
 -- Till Stuff --
 RegisterNetEvent("mb-trey:bill", function()
     local dialog = exports["qb-input"]:ShowInput({
@@ -1170,12 +1035,10 @@ RegisterNetEvent("mb-trey:bill", function()
     end
 end)
 
-
- 
 RegisterNetEvent("mb-trey:shop", function()
-
-
-    TriggerServerEvent("inventory:server:OpenInventory", "shop", "treybakery", Config.Items)
-
-
+    if Config.JimShops then 
+        TriggerServerEvent("jim-shops:ShopOpen", "shop", "treybakery", Config.Items)
+    else
+        TriggerServerEvent("inventory:server:OpenInventory", "shop", "treybakery", Config.Items)
+    end
 end)

@@ -1,6 +1,6 @@
 Config = {}
 
-
+Config.JimShops = false
 
 Config.Items = {
 label = "Shop",
