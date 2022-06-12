@@ -1,5 +1,5 @@
 # mb-trey
-This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. 
+This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creatinging different goodies to serve. 
 
 
 
