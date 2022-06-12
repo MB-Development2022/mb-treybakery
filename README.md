@@ -97,3 +97,8 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 [TreyBakery](https://hanestudios.tebex.io/package/4449250)
 
 ![image](https://forum.cfx.re/uploads/default/original/4X/4/2/0/420bf17e989f58c2814f1b468126e5a60b55662c.jpeg)
+
+# Preview 
+
+![image](https://i.imgur.com/4nVEcxz.jpeg)
+![image](https://i.imgur.com/Eijm5gM.png)
