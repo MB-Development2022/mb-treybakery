@@ -579,25 +579,9 @@ RegisterNetEvent("mb-trey:DutyB", function()
 end)
 
 
-RegisterNetEvent("mb-trey:Tray1", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "treytray1")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray1", {
-        maxweight = 10000,
-        slots = 6,
-    })
-end)
-
-RegisterNetEvent("mb-trey:Tray4", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "treytray4")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray4", {
-        maxweight = 10000,
-        slots = 6,
-    })
-end)
-
-RegisterNetEvent("mb-trey:Tray3", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "treytray3")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "treytray3", {
+RegisterNetEvent("mb-trey:Tray", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "Trey Tray")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "Trey Tray", {
         maxweight = 10000,
         slots = 6,
     })

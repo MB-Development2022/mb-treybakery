@@ -203,12 +203,28 @@ QBCore.Functions.CreateUseableItem("weddingcakefull", function(source, item)
 end)
 
 CreateThread(function()
-    for k,v in pairs(ConsumablesEat) do 
-        QBCore.Functions.CreateUsableItem(k, function(source, item)
-            local Player = QBCore.Functions.GetPlayer(source)
+    for k,v in pairs(ConsumeablesEat) do 
+        QBCore.Functions.CreateUseableItem(k, function(source, item)
+            local src = source
+            local Player = QBCore.Functions.GetPlayer(src)
             if Player.Functions.GetItemByName(item.name) ~= nil then 
-                TriggerClientEvent(v.event, source, item.name)
+                TriggerClientEvent(v.event, src, item.name)
             end
         end)
     end
+end)
+
+QBCore.Functions.CreateCallback('mb-treybakery:server:ingredients', function(source, cb, items)
+    local src = source 
+    local Player = QBCore.Functions.GetPlayer(src)
+    local items = items
+    local hasItems = true 
+    for k,v in pairs(items) do 
+        if Player.Functions.GetItemByName(items[k].itemName) ~= nil then 
+            hasItems = hasItems and (Player.Functions.GetItemByName(items[k].itemName).amount >= items[k].amount)
+        else
+            hasItems = hasItems and false 
+        end
+    end
+    cb(hasItems)
 end)
