@@ -71,30 +71,57 @@ RegisterNetEvent("mb-trey:CreateDonutBox", function()
     		if HasItems then
 				Working = true
 				TriggerEvent('inventory:client:busy:status', true)
-				QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = false,
-				}, {
-					animDict = "mp_common",
-					anim = "givetake1_a",
-					flags = 8,
-				}, {}, {}, function() -- Done
-					Working = false
-					TriggerEvent('inventory:client:busy:status', false)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
-                    TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
-
-
-					TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
-                    TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
-
-                    QBCore.Functions.Notify("You made a Donut Box", "success")
-				end, function()
-					TriggerEvent('inventory:client:busy:status', false)
-					Working = false
-				end, "donutbox")
+                if Config.ProjectSlothPB then 
+                    QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
+                        disableMovement = true,
+                        disableCarMovement = false,
+                        disableMouse = false,
+                        disableCombat = false,
+                    }, {
+                        animDict = "mp_common",
+                        anim = "givetake1_a",
+                        flags = 8,
+                    }, {}, {}, function() -- Done
+                        Working = false
+                        TriggerEvent('inventory:client:busy:status', false)
+                        TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
+                        TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
+    
+    
+                        TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
+                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
+    
+                        QBCore.Functions.Notify("You made a Donut Box", "success")
+                    end, function()
+                        TriggerEvent('inventory:client:busy:status', false)
+                        Working = false
+                    end, "donutbox")
+                else
+                    QBCore.Functions.Progressbar("pickup_sla", "Making A Donut Box..", 4000, false, true, {
+                        disableMovement = true,
+                        disableCarMovement = false,
+                        disableMouse = false,
+                        disableCombat = false,
+                    }, {
+                        animDict = "mp_common",
+                        anim = "givetake1_a",
+                        flags = 8,
+                    }, {}, {}, function() -- Done
+                        Working = false
+                        TriggerEvent('inventory:client:busy:status', false)
+                        TriggerServerEvent('QBCore:Server:RemoveItem', "chocdonut", 6)
+                        TriggerServerEvent('QBCore:Server:RemoveItem', "pinkdonut", 6)
+    
+    
+                        TriggerServerEvent('QBCore:Server:AddItem', "donutbox", 1)
+                        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutbox"], "add")
+    
+                        QBCore.Functions.Notify("You made a Donut Box", "success")
+                    end, function()
+                        TriggerEvent('inventory:client:busy:status', false)
+                        Working = false
+                    end)
+                end
 			else
    				QBCore.Functions.Notify("You dont have the items to make this", "error")
 			end
