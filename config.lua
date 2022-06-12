@@ -49,3 +49,20 @@ label = "Shop",
     }
 }
 
+--Food
+
+["emscupcake"] = math.random(40, 50),
+["carcupcake"] = math.random(40, 50),
+["chocolatecupcake"] = math.random(40, 50),
+["rvcupcake"] = math.random(40, 50),
+["weddingcake"] = math.random(40, 50),
+["birthdaycupcake"] = math.random(70, 80),
+["policecookie"] = math.random(40, 50),
+["chocdonut"] = math.random(40, 50),
+["pinkdonut"] = math.random(40, 50),
+["scheesecake"] = math.random(40, 50),
+["cookie"] = math.random(40, 50),
+
+--Drinks
+
+["smoothie"] = math.random(40, 50),
