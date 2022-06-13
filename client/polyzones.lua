@@ -10,10 +10,13 @@ CreateThread(function()
             options = {
                 {
                 action = function()
-                    TriggerEvent('mb-treybakery:client:openmenu', Mixer)
+                    TriggerEvent('mb-treybakery:client:openmenu', Mixer, "Mixing Station:")
                 end,
                 icon = "fas fa-"..Locations["MixerStation"].icon,
                 label = "Use Mixing Station",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -29,10 +32,13 @@ CreateThread(function()
             options = {
                 {
                 action = function()
-                    TriggerEvent('mb-treybakery:client:openmenu', CoffeeMachine)
+                    TriggerEvent('mb-treybakery:client:openmenu', CoffeeMachine, "Drink Machine:")
                 end,
                 icon = "fas fa-"..Locations["CoffeeMachine"].icon,
                 label = "Use Drink Machine",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -48,10 +54,13 @@ CreateThread(function()
             options = {
                 {
                 action = function()
-                    TriggerEvent('mb-treybakery:client:openmenu', Oven)
+                    TriggerEvent('mb-treybakery:client:openmenu', Oven, "Oven:")
                 end,
                 icon = "fas fa-"..Locations["Oven"].icon,
                 label = "Use Oven",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -67,10 +76,13 @@ CreateThread(function()
             options = {
                 {
                 action = function()
-                    TriggerEvent('mb-treybakery:client:openmenu', ChoppingBoard)
+                    TriggerEvent('mb-treybakery:client:openmenu', ChoppingBoard, "Chopping Board:")
                 end,
                 icon = "fas fa-"..Locations["ChoppingBoard"].icon,
                 label = "Use Chopping Board",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -88,6 +100,9 @@ CreateThread(function()
                 event = "mb-treybakery:client:ordermenu",
                 icon = "fas fa-"..Locations["OrderStation"].icon,
                 label = "Use Shelve",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -105,6 +120,9 @@ CreateThread(function()
                 event = "mb-treybakery:client:trey",
                 icon = "fas fa-"..Locations["Tray"].icon,
                 label = "Use Tray",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -124,6 +142,9 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["Stash"].icon,
                 label = "Open Stash",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -141,6 +162,9 @@ CreateThread(function()
                 event = "mb-treybakery:client:bill",
                 icon = "fas fa-"..Locations["Register"].icon,
                 label = "Use Register",
+                canInteract = function()
+                    return exports['mb-treybakery']:OnDuty() == true 
+                end,
                 job = JobName,
             },
         },
@@ -159,7 +183,7 @@ CreateThread(function()
                 icon = "fas fa-"..Locations["Duty"].iconoff,
                 label = "Go Off Duty",
                 canInteract = function()
-                    return exports['mb-treybakery']:OnDuty() == true
+                    return exports['mb-treybakery']:OnDuty() == true 
                 end,
                 job = JobName,
             },
