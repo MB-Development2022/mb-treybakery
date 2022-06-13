@@ -3,6 +3,8 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 
 Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they helped alot with the new improvements!
 
+If you have any issues with the script, or just wanna come out hang out. You can find us here: https://discord.gg/cHd2cvMYZF
+
 -- Add this to qb-core > shared > jobs.lua
 
 	["trey"] = {
@@ -68,9 +70,6 @@ Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they hel
 	
 	
 
-
-
-
 # Dependencies: 
 * **Dependencies**
 
@@ -96,6 +95,7 @@ Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they hel
 ![image](https://forum.cfx.re/uploads/default/original/4X/4/2/0/420bf17e989f58c2814f1b468126e5a60b55662c.jpeg)
 
 # Preview 
+**Will work on a better preview soon!**
 
 ![image](https://i.imgur.com/4nVEcxz.jpeg)
 ![image](https://i.imgur.com/Eijm5gM.png)
