@@ -1,10 +1,11 @@
 # mb-trey
-This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Also has Configurable options for jim-shops
+This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Everything is configurable threw the config!
 
+Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they helped alot with the new improvements!
 
+If you have any issues with the script, or just wanna come out hang out. You can find us here: https://discord.gg/cHd2cvMYZF
 
-
--- Add this below to qb-core > shared > jobs.lua
+-- Add this to qb-core > shared > jobs.lua
 
 	["trey"] = {
 		label = "trey",
@@ -35,7 +36,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 	},
 
 
--- Add this below to qb-core > shared > items.lua
+-- Add this to qb-core > shared > items.lua
 
 	-- Trey Bakery
 	--Ingredients 
@@ -53,7 +54,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 	["weddingcake"]		 	         	= {["name"] = "weddingcake", 			  	["label"] = "Wedding Cake Slice",    	    ["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "weddingcake.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Wedding Cake Slice."},
 	["weddingcakefull"]		 	     	= {["name"] = "weddingcakefull", 			["label"] = "Wedding Cake",    	        	["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "weddingcakefull.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Wedding Cake."},
 	["birthdaycupcake"]		 	     	= {["name"] = "birthdaycupcake", 			["label"] = "Birthday Cupcake",    	    	["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "birthdaycupcake.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Happy Birthday."},
-	["cupcake"]		 	     			= {["name"] = "cupcake", 			  		["label"] = "Cupcake",    	    			["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "Vinilla-Base.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Plain Cupcake."},
+	["plaincupcake"]		 	     			= {["name"] = "cupcake", 			  		["label"] = "Cupcake",    	    			["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "Vinilla-Base.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Plain Cupcake."},
 	["plaindonut"]		 	     		= {["name"] = "plaindonut", 			  	["label"] = "Plain Donut",    	    		["created"] = nil,		["decay"] = 3.0,		["weight"] = 500, 		["type"] = "item", 	    ["image"] = "original_glazed_td_21.png",["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Plain Donut."},
 	["policecookie"]		 	        = {["name"] = "policecookie", 			  	["label"] = "Police Cookie",    	        ["created"] = nil,		["decay"] = 3.0,	    ["weight"] = 400, 		["type"] = "item", 	    ["image"] = "policecookie.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Police Cookie."},
 	["donutbox"]		 	         	= {["name"] = "donutbox", 			  	  	["label"] = "Donut Box",    	            ["created"] = nil,		["decay"] = 3.0,		["weight"] = 400, 		["type"] = "item", 	    ["image"] = "donutbox.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   		["combinable"] = nil,   ["description"] = "Donut Box."},
@@ -69,11 +70,8 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 	
 	
 
-
-
-
 # Dependencies: 
-* **All dependencies**
+* **Dependencies**
 
 [qb-core](https://github.com/qbcore-framework/qb-core)
 
@@ -87,8 +85,6 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 
 [PolyZone](https://github.com/qbcore-framework/PolyZone)
 
-[ps-progressbar](https://github.com/Project-Sloth/progressbar)
-
 [jim-shops](https://github.com/jimathy/jim-shops)
 
 
@@ -99,6 +95,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 ![image](https://forum.cfx.re/uploads/default/original/4X/4/2/0/420bf17e989f58c2814f1b468126e5a60b55662c.jpeg)
 
 # Preview 
+**Will work on a better preview soon!**
 
 ![image](https://i.imgur.com/4nVEcxz.jpeg)
 ![image](https://i.imgur.com/Eijm5gM.png)

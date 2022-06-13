@@ -3,19 +3,9 @@ game 'gta5'
 
 author 'MB Development'
 description 'mb-treybakery for QBCore '
-version '1.2.8'
+version '1.3'
 
-shared_scripts {
-    'config.lua',
-}
+shared_scripts {'config.lua',}
+client_scripts {'client/*.lua',}
+server_script {'server/*.lua'}
 
-client_scripts {
-	'@PolyZone/client.lua',
-    '@PolyZone/BoxZone.lua',
-    '@PolyZone/EntityZone.lua',
-    '@PolyZone/CircleZone.lua',
-    '@PolyZone/ComboZone.lua',
-	'client/main.lua',
-}
-
-server_script 'server/main.lua'
