@@ -1,17 +1,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local PlayerJob = {}
-local onDuty = false
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    QBCore.Functions.GetPlayerData(function(PlayerData)
-        PlayerJob = PlayerData.job
-        if PlayerData.job.onduty then
-            if PlayerData.job.name == "trey" then
-                TriggerServerEvent("QBCore:ToggleDuty")
-            end
-        end
-    end)
+    PlayerJob = QBCore.Functions.GetPlayerData().job
 end)
 
 RegisterNetEvent('QBCore:Client:OnJobUpdate')

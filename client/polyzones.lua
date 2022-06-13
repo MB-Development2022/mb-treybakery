@@ -14,7 +14,7 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["MixerStation"].icon,
                 label = "Use Mixing Station",
-                job = "trey",
+                job = JobName,
             },
         },
             distance = Locations["MixerStation"].distance
@@ -33,7 +33,7 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["CoffeeMachine"].icon,
                 label = "Use Drink Machine",
-                job = "trey",
+                job = JobName,
             },
         },
         distance = Locations["CoffeeMachine"].distance
@@ -52,7 +52,7 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["Oven"].icon,
                 label = "Use Oven",
-                job = "trey",
+                job = JobName,
             },
         },
         distance = Locations["Oven"].distance
@@ -71,7 +71,7 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["ChoppingBoard"].icon,
                 label = "Use Chopping Board",
-                job = "trey",
+                job = JobName,
             },
         },
                 distance = Locations["ChoppingBoard"].distance
@@ -88,7 +88,7 @@ CreateThread(function()
                 event = "mb-treybakery:client:ordermenu",
                 icon = "fas fa-"..Locations["OrderStation"].icon,
                 label = "Use Shelve",
-                job = Locations["OrderStation"].job,
+                job = JobName,
             },
         },
         distance = Locations["OrderStation"].distance
@@ -105,7 +105,7 @@ CreateThread(function()
                 event = "mb-treybakery:client:trey",
                 icon = "fas fa-"..Locations["Tray"].icon,
                 label = "Use Tray",
-                job = Locations["Tray"].job,
+                job = JobName,
             },
         },
         distance = Locations["Tray"].distance
@@ -124,7 +124,7 @@ CreateThread(function()
                 end,
                 icon = "fas fa-"..Locations["Stash"].icon,
                 label = "Open Stash",
-                job = Locations["Stash"].job,
+                job = JobName,
             },
         },
         distance = Locations["Stash"].distance
@@ -141,7 +141,7 @@ CreateThread(function()
                 event = "mb-treybakery:client:bill",
                 icon = "fas fa-"..Locations["Register"].icon,
                 label = "Use Register",
-                job = Locations["Register"].job,
+                job = JobName,
             },
         },
         distance = Locations["Register"].distance
@@ -161,7 +161,7 @@ CreateThread(function()
                 canInteract = function()
                     return exports['mb-treybakery']:OnDuty() == true
                 end,
-                job = Locations["Duty"].job,
+                job = JobName,
             },
             {
                 event = "mb-treybakery:client:duty",
@@ -170,7 +170,7 @@ CreateThread(function()
                 canInteract = function()
                     return exports['mb-treybakery']:OnDuty() == false
                 end,
-                job = Locations["Duty"].job,
+                job = JobName,
             },
         },
         distance = Locations["Duty"].distance

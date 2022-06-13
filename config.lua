@@ -1,5 +1,6 @@
 Config = {}
 
+JobName = "trey"
 -- Stash Weight/Slot Info
 StashWeight = 25000
 StashSlots = 50
