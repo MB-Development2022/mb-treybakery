@@ -26,10 +26,10 @@ Mixer = {
     [1] = {
         station = "Mixer",
         txt = "Cupcake Mix x1",
-        item = "cupcake",
+        item = "plaincupcake",
         amount = 1,
         required = {
-            [1] = {itemName = "cupcakemix", amount = 1},
+            [1] = {itemName = "cakemix", amount = 1},
         },
         pbmsg = "Mixing...",
         pbtime = 4000,
@@ -60,7 +60,7 @@ Oven = {
         required = {
             [1] = {itemName = "cookiemix", amount = 1},
         },
-        progressMsg = "",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "amb@world_human_stand_fire@male@idle_a",
         anim = "idle_a",
@@ -73,7 +73,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaincupcake", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -86,7 +86,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaincupcake", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -99,7 +99,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaincupcake", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -125,7 +125,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaincupcake", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -138,7 +138,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaindonut", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -151,7 +151,7 @@ Oven = {
         required = {
             [1] = {itemName = "plaindonut", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -164,7 +164,7 @@ Oven = {
         required = {
             [1] = {itemName = "cookiemix", amount = 1},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -177,20 +177,21 @@ Oven = {
         required = {
             [1] = {itemName = "cakemix", amount = 10},
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
     },
     [11] = {
         station = "Oven",
-        txt = "Strawberry Cheesecake: x1",
+        txt = "Cake Mix: x1 <br> -Strawberries: x1",
         item = "scheesecake",
         amount = 1,
         required = {
-            [1] = {itemName = "1", amount = 1},
+            [1] = {itemName = "cakemix", amount = 1},
+            [2] = {itemName = "strawberry", amount = 1}
         },
-        progressMsg = "Pouring...",
+        progressMsg = "Cooking...",
         progressTime = 4000,
         animDict = "mp_arresting",
         anim = "a_uncuff",
@@ -232,7 +233,7 @@ CoffeeMachine = {
 
 --Food
 ConsumeablesEat = {
-    ["emscupcake"] = {effect = math.random(40, 50), },
+    ["emscupcake"] = {effect = math.random(40, 50), event = "consumables:client:emscupcake"},
     ["carcupcake"] = {effect = math.random(40, 50), event = "consumables:client:carcupcake"},
     ["chocolatecupcake"] = {effect = math.random(40, 50), event = "consumables:client:chocolatecupcake"},
     ["rvcupcake"] = {effect = math.random(40, 50), event = "consumables:client:rvcupcake"},
