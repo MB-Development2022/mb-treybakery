@@ -10,6 +10,15 @@ CreateThread(function()
             end
         end)
     end
+    for k,v in pairs(ConsumbalesDrink) do 
+        QBCore.Functions.CreateUseableItem(k, function(source, item)
+            local src = source 
+            local Player = QBCore.Functions.GetPlayer(src)
+            if Player.Functions.GetItemByName(item.name) ~= nil then 
+                TriggerClientEvent(v.event, src, item.name)
+            end
+        end)
+    end
 end)
 
 QBCore.Functions.CreateUseableItem("donutbox", function(source, item)
