@@ -3,7 +3,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 
 Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they helped alot with the new improvements!
 
-If you have any issues with the script, or just wanna come out hang out. You can find us here: https://discord.gg/cHd2cvMYZF
+If you have any issues with the script, or just wanna come out hang out. You can find us here: [Discord](https://discord.gg/cHd2cvMYZF)
 
 -- Add this to qb-core > shared > jobs.lua
 
