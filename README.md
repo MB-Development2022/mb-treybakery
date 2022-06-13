@@ -1,10 +1,9 @@
 # mb-trey
-This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Also has Configurable options for jim-shops and swappable progressbars.
+This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Everything is configurable threw the config!
 
+Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they helped alot with the new improvements!
 
-
-
--- Add this below to qb-core > shared > jobs.lua
+-- Add this to qb-core > shared > jobs.lua
 
 	["trey"] = {
 		label = "trey",
@@ -35,7 +34,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 	},
 
 
--- Add this below to qb-core > shared > items.lua
+-- Add this to qb-core > shared > items.lua
 
 	-- Trey Bakery
 	--Ingredients 
@@ -73,7 +72,7 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 
 
 # Dependencies: 
-* **All dependencies**
+* **Dependencies**
 
 [qb-core](https://github.com/qbcore-framework/qb-core)
 
@@ -86,8 +85,6 @@ This is a script made for the Trey Bakery MLO. It offers a easy config with many
 [qb-target](https://github.com/qbcore-framework/qb-target)
 
 [PolyZone](https://github.com/qbcore-framework/PolyZone)
-
-[ps-progressbar](https://github.com/Project-Sloth/progressbar)
 
 [jim-shops](https://github.com/jimathy/jim-shops)
 
