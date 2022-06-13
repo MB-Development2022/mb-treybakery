@@ -10,7 +10,7 @@ CreateThread(function()
             end
         end)
     end
-    for k,v in pairs(ConsumbalesDrink) do 
+    for k,v in pairs(ConsumeablesDrink) do 
         QBCore.Functions.CreateUseableItem(k, function(source, item)
             local src = source 
             local Player = QBCore.Functions.GetPlayer(src)
