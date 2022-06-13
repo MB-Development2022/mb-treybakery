@@ -114,7 +114,7 @@ end)
 
 RegisterNetEvent("consumables:client:chocdonut")
 AddEventHandler("consumables:client:chocdonut", function(itemName)
-    TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
+    TriggerEvent('animations:client:EmoteCommandStart', {"donut"})
     QBCore.Functions.Progressbar("eat_something", "Eating Chocolate Donut", 6500, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -130,7 +130,7 @@ end)
 
 RegisterNetEvent("consumables:client:pinkdonut")
 AddEventHandler("consumables:client:pinkdonut", function(itemName)
-    TriggerEvent('animations:client:EmoteCommandStart', {"egobar"})
+    TriggerEvent('animations:client:EmoteCommandStart', {"donut"})
     QBCore.Functions.Progressbar("eat_something", "Eating Pink Donut", 6500, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -178,8 +178,8 @@ end)
 
 RegisterNetEvent("consumables:client:smoothie")
 AddEventHandler("consumables:client:smoothie", function(itemName)
-    TriggerEvent('animations:client:EmoteCommandStart', {"coffe"})
-    QBCore.Functions.Progressbar("drink_something", "Drinking Soda..", 5000, false, true, {
+    TriggerEvent('animations:client:EmoteCommandStart', {"coffee"})
+    QBCore.Functions.Progressbar("drink_something", "Drinking Smoothie..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
