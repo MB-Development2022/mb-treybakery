@@ -1,5 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local PlayerJob = {}
+local onDuty = false
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
@@ -10,11 +11,6 @@ RegisterNetEvent('QBCore:Client:OnJobUpdate')
 AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
     PlayerJob = JobInfo
     onDuty = PlayerJob.onduty
-end)
-
-RegisterNetEvent('QBCore:Client:SetDuty')
-AddEventHandler('QBCore:Client:SetDuty', function(duty)
-    onDuty = duty
 end)
 
 RegisterNetEvent('mb-treybakery:client:duty', function()
