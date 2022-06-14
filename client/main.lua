@@ -164,7 +164,7 @@ RegisterNetEvent("mb-treybakery:client:bill", function()
     })
     if dialog then
         if not dialog.citizenid or not dialog.billprice then return end
-        TriggerServerEvent("mb-treybakery:server:bill", dialog.citizenid, dialog.billprice)
+        TriggerServerEvent("mb-treybakery:server:billplayer", dialog.citizenid, dialog.billprice)
     end
 end)
 

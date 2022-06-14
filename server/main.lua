@@ -27,8 +27,8 @@ RegisterServerEvent('mb-treybakery:server:craft', function(items, giveitem, amou
     end
 end)
 
-RegisterServerEvent("mb-trey:bill:player")
-AddEventHandler("mb-trey:bill:player", function(playerId, amount)
+RegisterServerEvent("mb-treybakery:server:billplayer")
+AddEventHandler("mb-treybakery:server:billplayer", function(playerId, amount)
     local biller = QBCore.Functions.GetPlayer(source)
     local billed = QBCore.Functions.GetPlayer(tonumber(playerId))
     local amount = tonumber(amount)
