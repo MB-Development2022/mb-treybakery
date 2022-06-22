@@ -1,11 +1,47 @@
-# mb-trey
+![head.png](https://i.imgur.com/N2RY20e.png)
+#
+<h2 align="center"> MB TreyBakery:</h2>
+
+<p align="center">
+<a href="https://www.discord.gg/cHd2cvMYZF"><img src="https://img.shields.io/discord/979284356730327070?color=d63f50&label=Our%20Discord:&labelColor=000000&logo=discord&logoColor=FFFFFF&style=flat-square"></a>
+<a href="https://github.com/MB-Development2022"><img src="https://img.shields.io/github/followers/MB-Development2022?color=d63f50&label=Follow:&labelColor=000000&logo=github&logoColor=FFFFFF&style=flat-square"></a>
+<a href="https://https://github.com/MB-Development2022/mb-treybakery"><img src="https://shields-io-visitor-counter.herokuapp.com/badge?page=MB-Development2022&label=Visitors:&labelColor=000000&logo=GitHub&logoColor=FFFFFF&color=d63f50&style=flat-square"></a>
+<a href="https://https://github.com/MB-Development2022/mb-treybakery/blob/main/LICENSE"><img src="https://img.shields.io/github/license/MB-Development2022/mb-treybakery?color=d63f50&label=License:&labelColor=000000&logo=github&style=flat-square"></a>
+<a href="https://github.com/MB-Development2022/mb-treybakery/issues"><img src="https://img.shields.io/github/issues/MB-Development2022/mb-treybakery?color=d63f50&label=Issues%3A&labelColor=000000&logo=github&style=flat-square"></a>
+</p>
+
+#
+<h2 align="center"> Dependencies:</h2>
+
+<p align="center">
+<a href="https://github.com/qbcore-framework/qb-core"><img src="https://img.shields.io/badge/-QB%20Core-000000?style=flat-square&logo=github&logoColor=white"></a>
+<a href="https://github.com/qbcore-framework/qb-menu"><img src="https://img.shields.io/badge/-QB%20Menu-000000?style=flat-square&logo=github&logoColor=white"></a>
+<a href="https://github.com/qbcore-framework/qb-input"><img src="https://img.shields.io/badge/-QB%20Input-000000?style=flat-square&logo=github&logoColor=white"></a>
+<a href="https://github.com/loljoshie/lj-inventory"><img src="https://img.shields.io/badge/-LJ%20Inventory-000000?style=flat-square&logo=github&logoColor=white"></a>
+<a href="https://github.com/qbcore-framework/PolyZone"><img src="https://img.shields.io/badge/-PolyZone-000000?style=flat-square&logo=github&logoColor=white"></a>
+<a href="https://github.com/jimathy/jim-shops"><img src="https://img.shields.io/badge/-Jim%20Shops-000000?style=flat-square&logo=github&logoColor=white"></a>
+</p>
+
+#
+
+<p align="center">
 This is a script made for the Trey Bakery MLO. It offers a easy config with many presets already in place. It has tiered systems to baking and creating different goodies to serve. Everything is configurable threw the config!
+If you have any issues with the script, or just wanna come out hang out, join our discord above!
+</p>
 
-Massive shoutout to [Snipe](https://github.com/pushkart2) for the tips, they helped alot with the new improvements!
+<p align="center">
+Massive shoutout to <a href="https://github.com/pushkart2"><img src="https://img.shields.io/badge/-Snipe-000000?style=flat-square&logo=github&logoColor=white"></a> for the tips, they helped alot with the new improvements!
+</p>
 
-If you have any issues with the script, or just wanna come out hang out. You can find us here: [Discord](https://discord.gg/cHd2cvMYZF)
+#
+<h2 align="center"> Bakery MLO:</h2>
 
--- Add this to qb-core > shared > jobs.lua
+[![Bakery](https://forum.cfx.re/uploads/default/original/4X/4/2/0/420bf17e989f58c2814f1b468126e5a60b55662c.jpeg)](https://hanestudios.tebex.io/package/4449250)
+
+#
+<h2 align="center"> Installation:</h2>
+
+<p align="center"> Add to qbcore/shared/jobs.lua</p>
 
 	["trey"] = {
 		label = "trey",
@@ -36,7 +72,7 @@ If you have any issues with the script, or just wanna come out hang out. You can
 	},
 
 
--- Add this to qb-core > shared > items.lua
+<p align="center"> Add to qbcore/shared/items.lua</p>
 
 	-- Trey Bakery
 	--Ingredients 
@@ -68,34 +104,9 @@ If you have any issues with the script, or just wanna come out hang out. You can
 	["trey-toy1"] 		 		 		= {["name"] = "trey-toy1", 					["label"] = "Donut Plushy", 				["created"] = nil,		["decay"] = 3.0,		["weight"] = 50, 		["type"] = "item", 		["image"] = "treytoy1.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   		["combinable"] = nil,   ["description"] = "Donut Plushy from Trey Bakery"},
 	["trey-toy2"] 		 		 		= {["name"] = "trey-toy2", 					["label"] = "Sugar Glider", 				["created"] = nil,		["decay"] = 3.0,		["weight"] = 50, 		["type"] = "item", 		["image"] = "treytoy2.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   		["combinable"] = nil,   ["description"] = "Sugar Glider Plushy from Trey Bakery"},
 	
-	
-
-# Dependencies: 
-* **Dependencies**
-
-[qb-core](https://github.com/qbcore-framework/qb-core)
-
-[lj-inventory](https://github.com/loljoshie/lj-inventory)
-
-[qb-menu](https://github.com/qbcore-framework/qb-menu)
-
-[qb-input](https://github.com/qbcore-framework/qb-input)
-
-[qb-target](https://github.com/qbcore-framework/qb-target)
-
-[PolyZone](https://github.com/qbcore-framework/PolyZone)
-
-[jim-shops](https://github.com/jimathy/jim-shops)
-
-
-# Bakery MLO
-
-[TreyBakery](https://hanestudios.tebex.io/package/4449250)
-
-![image](https://forum.cfx.re/uploads/default/original/4X/4/2/0/420bf17e989f58c2814f1b468126e5a60b55662c.jpeg)
-
-# Preview 
-**Will work on a better preview soon!**
+#
+<h2 align="center"> Preview:</h2>
+<p align="center"> WILL MAKE A BETTER PREVIEW SOON!</p>
 
 ![image](https://i.imgur.com/4nVEcxz.jpeg)
 ![image](https://i.imgur.com/Eijm5gM.png)
