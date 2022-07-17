@@ -208,22 +208,51 @@ RegisterNetEvent("mb-trey:WeddingCakeFull", function()
 end)
 
 RegisterNetEvent("mb-trey:DonutBox", function()
-    local randomToy = math.random(1,10)
     TriggerServerEvent('QBCore:Server:RemoveItem', "donutbox", 1)
     TriggerServerEvent('QBCore:Server:AddItem', "chocdonut", 6)
     TriggerServerEvent('QBCore:Server:AddItem', "pinkdonut", 6)
+    TriggerServerEvent('QBCore:Server:AddItem', "trey_box", 1)
 
-    if randomToy < 4 then
-        QBCore.Functions.Notify("No toy in box :(", "error")
-    elseif randomToy == 4 then
-        TriggerServerEvent('QBCore:Server:AddItem', "trey-toy1", 1)
-        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy1"], "add")
-    elseif randomToy < 10 and randomToy > 4 then
-        QBCore.Functions.Notify("No toy in box :(", "error")
-    elseif randomToy == 10 then	
-        TriggerServerEvent('QBCore:Server:AddItem', "trey-toy2", 1)	
-        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["trey-toy2"], "add")
-    else	
-        QBCore.Functions.Notify("No toy in box :(", "error")
+end)
+
+
+ 
+
+RegisterNetEvent("mb-trey:TreyBox", function()
+    local randomToy = math.random(1,100)
+    TriggerServerEvent('QBCore:Server:RemoveItem', "trey_box", 1)
+
+    if randomToy < 10 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 10 then
+        TriggerServerEvent('QBCore:Server:AddItem', "donutplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["donutplushy"], "add")
+    elseif randomToy < 20 and randomToy > 10 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 20 then
+        TriggerServerEvent('QBCore:Server:AddItem', "cookieplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cookieplushy"], "add")
+    elseif randomToy < 30 and randomToy > 20 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 30 then
+        TriggerServerEvent('QBCore:Server:AddItem', "cupcakeplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cupcakeplushy"], "add")
+    elseif randomToy < 40 and randomToy > 30 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 40 then
+        TriggerServerEvent('QBCore:Server:AddItem', "icecreamconeplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["icecreamconeplushy"], "add")
+    elseif randomToy < 50 and randomToy > 40 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 50 then
+        TriggerServerEvent('QBCore:Server:AddItem', "icecreamsandwichplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["icecreamsandwichplushy"], "add")
+    elseif randomToy < 60 and randomToy > 50 then
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
+    elseif randomToy == 60 then
+        TriggerServerEvent('QBCore:Server:AddItem', "pridecakeplushy", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["pridecakeplushy"], "add")
+    else
+        QBCore.Functions.Notify("Better Luck Next time!", "error")
     end
 end)
