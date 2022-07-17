@@ -30,3 +30,8 @@ QBCore.Functions.CreateUseableItem("weddingcakefull", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("mb-trey:WeddingCakeFull", source, item.name)
 end)
+
+QBCore.Functions.CreateUseableItem("trey_box", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("mb-trey:trey_box", source, item.name)
+  end)
